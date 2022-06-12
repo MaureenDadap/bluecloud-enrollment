@@ -1,0 +1,50 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css");
+
+:root {
+    --dark-blue: #3c4e6d;
+    --light-blue: #489df2;
+}
+
+/* -----------------------------------
+    Common
+-------------------------------------*/
+a {
+    transition:ease-in-out 0.2s;
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--light-blue);
+}
+
+
+/* -----------------------------------
+    Footer
+-------------------------------------*/
+footer {
+    background-color: var(--dark-blue);
+    color: #fff;
+}
+
+footer .brand img {
+    height: 100px;
+}
+
+footer ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+footer i {
+    margin-right: 12px;
+    font-size: 1.2rem;
+}
+
+footer a {
+    color: #fff;
+}
+
+footer .copyright {
+    font-size: 0.8rem;
+    color: #a0aab8;
+}
