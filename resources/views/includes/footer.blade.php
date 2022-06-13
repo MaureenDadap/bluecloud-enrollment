@@ -1,7 +1,7 @@
 <footer>
-    <div class="footer py-5">
+    <div class="footer py-2">
         <div class="container">
-            <div class="row">
+            <div class="row py-5">
                 <div class="col-lg-4 brand">
                     <img src="{{ asset('img/logo.png') }}" alt="Logo">
                     <p>Bluecloud Enrollment is a web-based enrollment application which is a supplement to the existing
@@ -43,7 +43,7 @@
                     </ul>
                 </div>
             </div>
-            <div class="text-center mt-4">
+            <div class="text-center">
                 <p class="copyright">Copyright © 2022. All Rights Reserved.</p>
             </div>
         </div>
