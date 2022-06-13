@@ -26,7 +26,7 @@
             </a>
         </div>
     </div>
-    <div class="dashboard row justify-content-center mt-4 gy-4">
+    <div class="dashboard row justify-content-center mt-3 gy-4">
         <div class="col-md-6 col-lg-4">
             <a href="/student/cor">
                 <div class="card rounded p-4 cor">

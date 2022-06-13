@@ -43,7 +43,7 @@
                     </ul>
                 </div>
             </div>
-            <div class="text-center pt-3">
+            <div class="text-center mt-4">
                 <p class="copyright">Copyright © 2022. All Rights Reserved.</p>
             </div>
         </div>
