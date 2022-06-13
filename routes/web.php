@@ -36,3 +36,7 @@ Route::get('/student/clearance', function () {
 Route::get('/student/payment-ledger', function () {
     return view('student.pages.payment-ledger');
 });
+
+Route::get('/student/payment', function () {
+    return view('student.pages.payment');
+}); 
