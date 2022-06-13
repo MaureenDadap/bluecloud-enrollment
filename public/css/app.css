@@ -9,7 +9,7 @@
     Common
 -------------------------------------*/
 a {
-    transition:ease-in-out 0.2s;
+    transition: ease-in-out 0.2s;
     text-decoration: none;
 }
 
@@ -17,6 +17,58 @@ a:hover {
     color: var(--light-blue);
 }
 
+/* -----------------------------------
+    Default Navbar
+-------------------------------------*/
+nav {
+    border-bottom: 1px solid #dfdfdf;
+}
+
+.navbar-brand-logo {
+    height: 60px;
+}
+
+.nav-link {
+    font-weight: 500;
+}
+
+.avatar-img {
+    height: 40px;
+}
+
+/* -----------------------------------
+    Student Default
+-------------------------------------*/
+.body-title {
+}
+
+/* -----------------------------------
+    Dashboard
+-------------------------------------*/
+.dashboard .card {
+    color: #fff;
+    border: none;
+}
+
+.dashboard .card.enroll {
+    background-color: #f67a9c;
+}
+
+.dashboard .card.ledger {
+    background-color: #489df2;
+}
+
+.dashboard .card.cor {
+    background-color: #6a5be5;
+}
+
+.dashboard .card.clearance {
+    background-color: #6cbf9c;
+}
+
+.dashboard .card i {
+    font-size: 50px;
+}
 
 /* -----------------------------------
     Footer

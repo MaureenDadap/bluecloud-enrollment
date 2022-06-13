@@ -2,10 +2,18 @@
 <html lang="en">
 @include('includes.head')
 
+
 <body>
     @include('student.includes.header')
-    @yield('content')
-    @include('student.includes.footer')
+
+    <div class="main py-5">
+        <div class="container">
+            <h2 class="mb-5 body-title text-center">@yield('body-title')</h1>
+            @yield('content')
+        </div>
+    </div>
+
+    @include('includes.footer')
 
     {{-- Vendor Scripts --}}
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
