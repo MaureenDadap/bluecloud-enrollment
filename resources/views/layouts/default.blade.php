@@ -3,10 +3,14 @@
 @include('includes.head')
 
 <body>
-    <div class="main">
+    <div class="main default">
+        <div class="d-flex justify-content-center py-3">
+            <img src="../img/logo-title.png" class="logo" alt="logo">
+        </div>
+
         @yield('content')
     </div>
-    
+
     @include('includes.footer')
 
     {{-- Vendor Scripts --}}

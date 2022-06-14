@@ -15,7 +15,7 @@ use App\Http\Controllers\UserController;
 |
 */
 
-Route::get('/', 'App\Http\Controllers\UserController@login');
+Route::get('/', [UserController::class, 'login']);
 
 
 // ----------------- 

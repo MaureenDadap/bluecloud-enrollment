@@ -2,7 +2,7 @@
 @section('title', '- Register')
 
 @section('content')
-    <form action="{{ route('student.store') }}" method="POST">
+    <form action="" method="POST">
         @csrf
         <section class="h-custom gradient-custom-2">
             <div class="container py-5 h-100">
