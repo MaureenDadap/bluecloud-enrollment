@@ -45,9 +45,6 @@
 
                         <input type="radio" name="school_term" value="3" id="3rd">
                         <label for="3rd" class="me-2">3rd</label>
-
-                        <input type="radio" name="school_term" value="summer" id="summer">
-                        <label for="summer" class="me-2">Summer</label>
                     </div>
                 </div>
 
