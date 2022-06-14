@@ -20,11 +20,11 @@
                 <!-- Nav Main menu START -->
                 <ul class="navbar-nav navbar-nav-scroll mx-auto">
                     <!-- Nav item links-->
-                    <a class="nav-link mx-2" href="/student/dashboard">Dashboard</a>
-                    <a class="nav-link mx-2" href="/student/online-enrollment">Online Enrollment</a>
-                    <a class="nav-link mx-2" href="/student/cor">Certificate of Enrollment</a>
-                    <a class="nav-link mx-2" href="/student/clearance">Clearance</a>
-                    <a class="nav-link mx-2" href="/student/payment-ledger">Payment Ledger</a>
+                    <a class="nav-link mx-2 {{ (request()->is('student/dashboard')) ? 'active' : '' }}" href="/student/dashboard">Dashboard</a>
+                    <a class="nav-link mx-2 {{ (request()->is('student/online-enrollment')) ? 'active' : '' }}" href="/student/online-enrollment">Online Enrollment</a>
+                    <a class="nav-link mx-2 {{ (request()->is('student/cor')) ? 'active' : '' }}" href="/student/cor">Certificate of Enrollment</a>
+                    <a class="nav-link mx-2 {{ (request()->is('student/clearance')) ? 'active' : '' }}" href="/student/clearance">Clearance</a>
+                    <a class="nav-link mx-2 {{ (request()->is('student/payment-ledger')) ? 'active' : '' }}" href="/student/payment-ledger">Payment Ledger</a>
                 </ul>
                 <!-- Nav Main menu END -->
             </div>

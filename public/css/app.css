@@ -30,6 +30,18 @@ nav {
 
 .nav-link {
     font-weight: 500;
+    position: relative;
+}
+
+.nav-link.active::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px; /* Negative height */
+    height: 4px; /* Height of border */
+    width: 100%;
+    background-color: var(--light-blue);
+    border-radius: 5rem; /* This can be any number but is normally set very high for the pill-shape */
 }
 
 .avatar-img {
@@ -51,9 +63,10 @@ nav {
     transition: ease-in-out 0.3s;
 }
 
-.dashboard a:hover .card  {
-  transform: translateY(-0.3rem);
-  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+.dashboard a:hover .card {
+    transform: translateY(-0.3rem);
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1),
+        0 4px 6px -4px rgb(0 0 0 / 0.1);
 }
 
 .dashboard .card.enroll {
@@ -82,7 +95,6 @@ nav {
 .student-pic {
     height: 150px;
 }
-
 
 /* -----------------------------------
     Footer
