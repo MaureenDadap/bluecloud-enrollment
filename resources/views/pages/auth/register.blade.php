@@ -112,7 +112,7 @@
                                                 </select>
                                             </div>
 
-                                            <input type="submit" name="submit" class="btn btn-light btn-lg"
+                                            <input type="submit" name="submit" class="btn btn-primary btn-lg"
                                                 data-mdb-ripple-color="dark" value="Register" />
 
                                             @if ($errors->any())

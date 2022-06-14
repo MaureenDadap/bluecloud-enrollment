@@ -13,102 +13,35 @@
                             <div class="card-body p-0">
                                 <div class="row g-0">
                                     <div class="col-lg-6">
+                                        <div class="p-5 text-center">
+                                            <img src="../img/logo-title.png" alt="logo" class="logo large mb-3">
+                                            <p class="lead">Bluecloud Enrollment is a web-based enrollment
+                                                application which is a
+                                                supplement to the existing information system of NU Laguna.</p>
+                                            <a href="/" class="btn btn-outline-secondary">Register for account instead</a>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 bg-primary-blue ">
                                         <div class="p-5">
-                                            <h3 class="mb-5 text-primary">Basic Infomation</h3>
-
-                                            <div class="row">
-                                                <div class="col-md-6 mb-4 pb-2">
-                                                    <div class="form-floating">
-                                                        <input type="text" name="first_name"
-                                                            class="form-control form-control-lg" placeholder="First Name" />
-                                                        <label class="form-label">First name</label>
-                                                    </div>
-
-                                                </div>
-                                                <div class="col-md-6 mb-4 pb-2">
-                                                    <div class="form-floating">
-                                                        <input type="text" name="last_name"
-                                                            class="form-control form-control-lg" placeholder="Last Name" />
-                                                        <label class="form-label">Last name</label>
-                                                    </div>
-
-                                                </div>
-                                            </div>
-
-                                            <div class="mb-4 pb-2">
-                                                <div class="">
-                                                    <label class="form-label" for="">Birthdate</label>
-                                                    <input type="date" name="birthdate"
-                                                        class="form-control form-control-lg" />
-                                                </div>
-                                            </div>
-
+                                            <h2 class="mb-5 text-white">Login</h2>
                                             <div class="mb-4 pb-2">
                                                 <div class="form-floating">
-                                                    <input type="text" name="email" class="form-control form-control-lg"
-                                                        placeholder="Email address" />
-                                                    <label class="form-label">Email address</label>
-                                                </div>
-                                            </div>
-
-                                            <div class="mb-4 pb-2">
-                                                <div class="form-floating">
-                                                    <input type="text" name="username" class="form-control form-control-lg"
+                                                    <input type="text" name="username" class="form-control"
                                                         placeholder="Username" />
                                                     <label class="form-label" for="">Username</label>
                                                 </div>
                                             </div>
 
-                                            <div class="row">
-                                                <div class="col-md-6 mb-4 pb-2">
-                                                    <div class="form-floating">
-                                                        <input type="password" name="password"
-                                                            class="form-control form-control-lg" placeholder="Password" />
-                                                        <label class="form-label">Password</label>
-                                                    </div>
-
-                                                </div>
-                                                <div class="col-md-6 mb-4 pb-2">
-                                                    <div class="form-floating">
-                                                        <input type="password" name="confirm_password"
-                                                            class="form-control form-control-lg"
-                                                            placeholder="Confirm password" />
-                                                        <label class="form-label">Confirm password</label>
-                                                    </div>
-
+                                            <div class="mb-4 pb-2">
+                                                <div class="form-floating">
+                                                    <input type="password" name="password" class="form-control"
+                                                        placeholder="Password" />
+                                                    <label class="form-label">Password</label>
                                                 </div>
                                             </div>
 
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 bg-primary-blue text-white">
-                                        <div class="p-5">
-                                            <h3 class="mb-5">Application Details</h3>
-
-                                            <div class="mb-4 pb-2">
-                                                <label class="form-label">Department</label>
-                                                <select class="form-select">
-                                                    <option selected></option>
-                                                </select>
-                                            </div>
-                                            <div class="mb-4 pb-2">
-                                                <label class="form-label">Program</label>
-                                                <select class="form-select">
-                                                    <option selected></option>
-                                                </select>
-                                            </div>
-                                            <div class="mb-4 pb-2">
-                                                <label class="form-label">Year</label>
-                                                <select class="form-select">
-                                                    <option value="1" selected>1</option>
-                                                    <option value="2">2</option>
-                                                    <option value="2">3</option>
-                                                    <option value="2">4</option>
-                                                </select>
-                                            </div>
-
-                                            <input type="submit" name="submit" class="btn btn-light btn-lg"
-                                                data-mdb-ripple-color="dark" value="Register" />
+                                            <input type="submit" name="submit" class="btn btn-primary btn-lg"
+                                                data-mdb-ripple-color="dark" value="Login" />
 
                                             @if ($errors->any())
                                                 <div class="alert alert-danger">

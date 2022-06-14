@@ -21,6 +21,10 @@ a:hover {
     height: 120px;
 }
 
+.main.default .logo.large {
+    height: 200px;
+}
+
 /* -----------------------------------
     Navigation
 -------------------------------------*/
