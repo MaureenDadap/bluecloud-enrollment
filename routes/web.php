@@ -15,17 +15,17 @@ use App\Http\Controllers\UserController;
 |
 */
 
+
+// ----------------- 
+//   Auth Routes
+// ----------------- 
 Route::get('/', [UserController::class, 'login']);
+Route::get('/register', [UserController::class, 'register']);
 
 
 // ----------------- 
 //   Student Routes
 // ----------------- 
-
-// Route::resource('student', StudentController::class);
-
-//student register
-Route::view('/register', 'StudentController@create');
 
 //student dashboard 
 Route::get('/student/dashboard', 'StudentController@index');

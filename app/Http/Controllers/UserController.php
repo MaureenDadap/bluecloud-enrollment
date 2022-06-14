@@ -6,7 +6,13 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    public function login() {
+    public function login()
+    {
         return view('pages.auth.login');
+    }
+
+    public function register()
+    {
+        return view('pages.auth.register');
     }
 }

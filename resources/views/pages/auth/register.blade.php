@@ -4,8 +4,14 @@
 @section('content')
     <form action="" method="POST">
         @csrf
-        <section class="h-custom gradient-custom-2">
+        <section class="bg-light bg-gradient">
+
             <div class="container py-5 h-100">
+                <div class="text-center mb-5">
+                    <img src="../img/logo-title.png" alt="logo" class="logo mb-3">
+                    <h1 class="text-center">Enrollment Application</h1>
+                </div>
+
                 <div class="row d-flex justify-content-center align-items-center h-100">
                     <div class="col-12">
                         <div class="card card-registration card-registration-2" style="border-radius: 15px;">

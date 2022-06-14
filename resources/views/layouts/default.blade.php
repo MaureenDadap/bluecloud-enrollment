@@ -4,9 +4,9 @@
 
 <body>
     <div class="main default">
-        <div class="d-flex justify-content-center py-3">
+        {{-- <div class="d-flex justify-content-center py-3">
             <img src="../img/logo-title.png" class="logo" alt="logo">
-        </div>
+        </div> --}}
 
         @yield('content')
     </div>
