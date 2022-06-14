@@ -18,7 +18,7 @@
                                             <p class="lead">Bluecloud Enrollment is a web-based enrollment
                                                 application which is a
                                                 supplement to the existing information system of NU Laguna.</p>
-                                            <a href="/" class="btn btn-outline-secondary">Register for account instead</a>
+                                            <a href="/register" class="btn btn-outline-secondary">Register for account instead</a>
                                         </div>
                                     </div>
                                     <div class="col-lg-6 bg-primary-blue ">
@@ -44,7 +44,7 @@
                                                 data-mdb-ripple-color="dark" value="Login" />
 
                                             @if ($errors->any())
-                                                <div class="alert alert-danger">
+                                                <div class="alert alert-danger mt-3">
                                                     <strong>Whoops!</strong> There were some problems with your
                                                     input.<br><br>
                                                     <ul>

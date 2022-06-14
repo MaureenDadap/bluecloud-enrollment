@@ -40,7 +40,6 @@ class StudentController extends Controller
             'first_name' => 'required',
             'first_name' => 'required',
             'birthdate' => 'required',
-            'department' => 'required',
             'program' => 'required',
             'year' => 'required'
         ]);
@@ -49,7 +48,6 @@ class StudentController extends Controller
             'last_name' => $request->get('last_name'),
             'first_name' => $request->get('first_name'),
             'birthdate' => $request->get('birthdate'),
-            'department' => $request->get('department'),
             'program' => $request->get('program'),
             'year' => $request->get('year'),
         ]);

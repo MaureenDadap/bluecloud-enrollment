@@ -20,7 +20,9 @@ use App\Http\Controllers\UserController;
 //   Auth Routes
 // ----------------- 
 Route::get('/', [UserController::class, 'login']);
-Route::get('/register', [UserController::class, 'register']);
+Route::get('login', [UserController::class, 'login']);
+Route::get('register', [UserController::class, 'register']);
+Route::post('custom-registration', [UserController::class, 'customRegistration'])->name('register.custom');
 
 
 // ----------------- 
@@ -28,11 +30,11 @@ Route::get('/register', [UserController::class, 'register']);
 // ----------------- 
 
 //student dashboard 
-Route::get('/student/dashboard', 'StudentController@index');
-Route::redirect('/student', '/student/dashboard');
+Route::get('student/dashboard', [StudentController::class]);
+Route::redirect('student', 'student/dashboard');
 
 
-Route::get('/student/dashboard', function () {
+Route::get('student/dashboard', function () {
     return view('pages.student.dashboard');
 });
 

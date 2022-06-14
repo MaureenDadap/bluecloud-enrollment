@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('username');
             $table->string('password');
-            $table->string('account_type');
+            $table->string('account_type')->default('student');
             $table->rememberToken();
             $table->timestamps();
         });

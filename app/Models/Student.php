@@ -12,7 +12,6 @@ class Student extends Model
         'last_name',
         'first_name',
         'birthdate',
-        'department',
         'program',
         'year',
         'registered_at',

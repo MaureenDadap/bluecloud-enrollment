@@ -2,7 +2,7 @@
 @section('title', '- Register')
 
 @section('content')
-    <form action="" method="POST">
+    <form action="{{ route('register.custom') }}" method="POST">
         @csrf
         <section class="bg-light bg-gradient">
 
@@ -91,20 +91,14 @@
                                             <h3 class="mb-5">Application Details</h3>
 
                                             <div class="mb-4 pb-2">
-                                                <label class="form-label">Department</label>
-                                                <select class="form-select">
-                                                    <option selected></option>
-                                                </select>
-                                            </div>
-                                            <div class="mb-4 pb-2">
                                                 <label class="form-label">Program</label>
-                                                <select class="form-select">
-                                                    <option selected></option>
+                                                <select class="form-select form-control-lg">
+                                                    <option selected>BS Computer Science</option>
                                                 </select>
                                             </div>
                                             <div class="mb-4 pb-2">
                                                 <label class="form-label">Year</label>
-                                                <select class="form-select">
+                                                <select class="form-select form-control-lg">
                                                     <option value="1" selected>1</option>
                                                     <option value="2">2</option>
                                                     <option value="2">3</option>
@@ -116,7 +110,7 @@
                                                 data-mdb-ripple-color="dark" value="Register" />
 
                                             @if ($errors->any())
-                                                <div class="alert alert-danger">
+                                                <div class="alert alert-danger mt-3">
                                                     <strong>Whoops!</strong> There were some problems with your
                                                     input.<br><br>
                                                     <ul>
