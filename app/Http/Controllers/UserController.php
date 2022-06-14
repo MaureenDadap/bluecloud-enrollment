@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AcademicSchedule;
 use App\Models\User;
 use App\Models\Student;
 use Illuminate\Http\Request;
@@ -32,7 +33,7 @@ class UserController extends Controller
         $credentials = $request->only('username', 'password');
 
         if (Auth::attempt($credentials)) {
-            return redirect()->intended('pages.student.dashboard')->withSuccess("Signed In");
+            return redirect()->intended('student')->withSuccess("Signed In");
         }
 
         return redirect("login")->withSuccess("Login details are not valid");
@@ -46,18 +47,25 @@ class UserController extends Controller
     public function customRegistration(Request $request)
     {
         $request->validate([
-            'email' => 'required',
-            'username' => 'required',
-            'password' => 'required'
+            'last_name' => 'required',
+            'first_name' => 'required',
+            'birthdate' => 'required',
+            'program' => 'required',
+            'year' => 'required',
+            'email' => 'required|email|unique:users',
+            'username' => 'required|unique:users',
+            'password' => 'required|min:8'
         ]);
 
-        $data = $request->all();
-        $check = $this->create($data);
+        $data = $request->only('email', 'username', 'password');
+        $data2 = $request->only('last_name', "first_name", 'birthdate', 'program', 'year');
+        $check = $this->createUser($data);
+        $check2 = $this->createStudent($data2);
 
-        return redirect("dashboard")->withSuccess("Have registered");
+        return redirect("student")->withSuccess("Have registered");
     }
 
-    public function create(array $data)
+    public function createUser(array $data)
     {
         return User::create([
             "email" => $data['email'],
@@ -66,10 +74,23 @@ class UserController extends Controller
         ]);
     }
 
+    public function createStudent(array $data)
+    {
+        $academicSched = AcademicSchedule::all()->last();
+        return Student::create([
+            "student_id" => "testing",
+            "last_name" => $data["last_name"],
+            "first_name" => $data["first_name"],
+            "birthdate" => $data["birthdate"],
+            "program" => $data["program"],
+            "year" => $data["year"],
+        ]);
+    }
+
     public function dashboard()
     {
         if (Auth::check()) {
-            return view('pages.student.dashboard');
+            return view('student');
         }
 
         return redirect("login")->withSuccess("Not allowed to access");

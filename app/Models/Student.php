@@ -14,7 +14,6 @@ class Student extends Model
         'birthdate',
         'program',
         'year',
-        'registered_at',
         'application_status',
         'image'
     ];

@@ -19,12 +19,10 @@ return new class extends Migration
             $table->string('last_name');
             $table->string('first_name');
             $table->date('birthdate');
-            $table->string('department');
             $table->string('program');
             $table->integer('year');
-            $table->dateTime('registered_at');
-            $table->boolean('application_status');
-            $table->string('image');
+            $table->boolean('application_status')->default(0);
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }

@@ -53,7 +53,7 @@ class StudentController extends Controller
         ]);
 
         $student->save();
-        return redirect('/student')->with('success', 'Student has been added');
+        return redirect('student')->with('success', 'Student has been added');
     }
 
     /**

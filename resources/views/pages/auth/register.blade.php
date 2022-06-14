@@ -92,13 +92,13 @@
 
                                             <div class="mb-4 pb-2">
                                                 <label class="form-label">Program</label>
-                                                <select class="form-select form-control-lg">
-                                                    <option selected>BS Computer Science</option>
+                                                <select name="program" class="form-select form-control-lg">
+                                                    <option value="BS Computer Science" selected>BS Computer Science</option>
                                                 </select>
                                             </div>
                                             <div class="mb-4 pb-2">
                                                 <label class="form-label">Year</label>
-                                                <select class="form-select form-control-lg">
+                                                <select name="year" class="form-select form-control-lg">
                                                     <option value="1" selected>1</option>
                                                     <option value="2">2</option>
                                                     <option value="2">3</option>
