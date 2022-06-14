@@ -24,7 +24,7 @@ class StudentController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.student.register');
     }
 
     /**
@@ -35,7 +35,27 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $request->validate([
+            'first_name' => 'required',
+            'first_name' => 'required',
+            'birthdate' => 'required',
+            'department' => 'required',
+            'program' => 'required',
+            'year' => 'required'
+        ]);
+
+        $student = new Student([
+            'last_name' => $request->get('last_name'),
+            'first_name' => $request->get('first_name'),
+            'birthdate' => $request->get('birthdate'),
+            'department' => $request->get('department'),
+            'program' => $request->get('program'),
+            'year' => $request->get('year'),
+        ]);
+
+        $student->save();
+        return redirect('/student')->with('success', 'Student has been added');
     }
 
     /**

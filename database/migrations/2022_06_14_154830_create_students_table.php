@@ -24,7 +24,7 @@ return new class extends Migration
             $table->integer('year');
             $table->dateTime('registered_at');
             $table->boolean('application_status');
-            $table->string('image')->nullable();
+            $table->string('image');
             $table->timestamps();
         });
     }

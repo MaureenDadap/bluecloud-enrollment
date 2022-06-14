@@ -7,5 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Courses extends Model
 {
-    use HasFactory;
+    //todo
+    protected $fillable = [
+        'first_name', 'last_name', 'address', 'course', 'year'
+    ];
 }

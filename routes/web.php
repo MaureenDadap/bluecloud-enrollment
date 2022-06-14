@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\StudentController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,18 +15,22 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('pages.login');
-});
-
-Route::post('/register', function () {
-    return view('pages.student.register');
-});
+Route::get('/', 'App\Http\Controllers\UserController@login');
 
 
 // ----------------- 
-//   Admin Routes
+//   Student Routes
 // ----------------- 
+
+// Route::resource('student', StudentController::class);
+
+//student register
+Route::view('/register', 'StudentController@create');
+
+//student dashboard 
+Route::get('/student/dashboard', 'StudentController@index');
+Route::redirect('/student', '/student/dashboard');
+
 
 Route::get('/student/dashboard', function () {
     return view('pages.student.dashboard');
@@ -50,7 +56,7 @@ Route::get('/student/payment', function () {
     return view('pages.student.payment');
 });
 
-Route::redirect('/student', '/student/dashboard');
+
 
 Route::view('/student/profile', 'pages.student.profile');
 

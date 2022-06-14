@@ -1,9 +1,9 @@
 @extends('layouts.default')
 @section('title', '- Register')
-@section('body-title', 'Register')
 
 @section('content')
-    <form action="" method="POST">
+    <form action="{{ route('student.store') }}" method="POST">
+        @csrf
         <section class="h-custom gradient-custom-2">
             <div class="container py-5 h-100">
                 <div class="row d-flex justify-content-center align-items-center h-100">
@@ -108,6 +108,18 @@
 
                                             <input type="submit" name="submit" class="btn btn-light btn-lg"
                                                 data-mdb-ripple-color="dark" value="Register" />
+
+                                            @if ($errors->any())
+                                                <div class="alert alert-danger">
+                                                    <strong>Whoops!</strong> There were some problems with your
+                                                    input.<br><br>
+                                                    <ul>
+                                                        @foreach ($errors->all() as $error)
+                                                            <li>{{ $error }}</li>
+                                                        @endforeach
+                                                    </ul>
+                                                </div>
+                                            @endif
 
                                         </div>
                                     </div>
