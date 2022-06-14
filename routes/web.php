@@ -39,4 +39,6 @@ Route::get('/student/payment-ledger', function () {
 
 Route::get('/student/payment', function () {
     return view('student.pages.payment');
-}); 
+});
+
+Route::view('/student/profile', 'student.pages.profile');

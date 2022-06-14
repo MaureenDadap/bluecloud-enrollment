@@ -48,6 +48,12 @@ nav {
     height: 40px;
 }
 
+/* @media screen and (max-width: 992px) {
+    .avatar-img {
+        display: none;
+    }
+} */
+
 /* -----------------------------------
     Student Default
 -------------------------------------*/

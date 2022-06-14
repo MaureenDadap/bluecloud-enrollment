@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 @include('includes.head')
+
 <body>
     @include('student.includes.header')
 
     <div class="main py-5">
         <div class="container">
             <h2 class="mb-5 body-title text-center">@yield('body-title')</h1>
-            @yield('content')
+                @yield('content')
         </div>
     </div>
 
