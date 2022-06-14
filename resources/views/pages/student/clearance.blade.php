@@ -1,4 +1,4 @@
-@extends('student.layouts.default')
+@extends('layouts.student')
 @section('title', '- Clearance')
 @section('body-title', 'Clearance')
 @section('content')

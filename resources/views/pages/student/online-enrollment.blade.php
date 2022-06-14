@@ -1,4 +1,4 @@
-@extends('student.layouts.default')
+@extends('layouts.student')
 @section('title', '- Online Enrollment')
 @section('body-title', 'Online Enrollment')
 

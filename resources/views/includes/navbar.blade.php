@@ -34,7 +34,7 @@
                 <!-- Nav Main menu END -->
 
                 <!-- Profile START -->
-                <div class="dropdown ms-1 ms-lg-0 my-lg-0 my-2">
+                <div class="dropdown ms-1 ms-lg-0 my-lg-0 my-2  ">
                     <a class="avatar avatar-sm p-0" href="#" id="profileDropdown" role="button"
                         data-bs-auto-close="outside" data-bs-display="static" data-bs-toggle="dropdown"
                         aria-expanded="false">

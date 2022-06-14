@@ -1,4 +1,4 @@
-@extends('student.layouts.default')
+@extends('layouts.student')
 @section('title', '- COR')
 @section('body-title', 'Certificate of Enrollment (COR)')
 @section('content')

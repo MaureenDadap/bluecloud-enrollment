@@ -14,31 +14,48 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('landing');
+    return view('pages.login');
 });
 
+Route::post('/register', function () {
+    return view('pages.student.register');
+});
+
+
+// ----------------- 
+//   Admin Routes
+// ----------------- 
+
 Route::get('/student/dashboard', function () {
-    return view('student.pages.dashboard');
+    return view('pages.student.dashboard');
 });
 
 Route::get('/student/online-enrollment', function () {
-    return view('student.pages.online-enrollment');
+    return view('pages.student.online-enrollment');
 });
 
 Route::get('/student/cor', function () {
-    return view('student.pages.cor');
+    return view('pages.student.cor');
 });
 
 Route::get('/student/clearance', function () {
-    return view('student.pages.clearance');
+    return view('pages.student.clearance');
 });
 
 Route::get('/student/payment-ledger', function () {
-    return view('student.pages.payment-ledger');
+    return view('pages.student.payment-ledger');
 });
 
 Route::get('/student/payment', function () {
-    return view('student.pages.payment');
+    return view('pages.student.payment');
 });
 
-Route::view('/student/profile', 'student.pages.profile');
+Route::redirect('/student', '/student/dashboard');
+
+Route::view('/student/profile', 'pages.student.profile');
+
+// ----------------- 
+//   Admin Routes
+// ----------------- 
+Route::view('/admin/dashboard', 'pages.admin.dashboard');
+Route::redirect('/admin', '/admin/dashboard');

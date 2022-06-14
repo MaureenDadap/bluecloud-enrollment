@@ -3,12 +3,10 @@
 @include('includes.head')
 
 <body>
-    @include('student.includes.header')
-
-    <div class="main py-5">
+    <div class="main">
         @yield('content')
     </div>
-
+    
     @include('includes.footer')
 
     {{-- Vendor Scripts --}}

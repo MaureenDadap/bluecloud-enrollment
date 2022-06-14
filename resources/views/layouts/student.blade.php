@@ -3,7 +3,7 @@
 @include('includes.head')
 
 <body>
-    @include('student.includes.header')
+    @include('includes.navbar')
 
     <div class="main py-5">
         <div class="container">

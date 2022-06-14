@@ -1,4 +1,4 @@
-@extends('student.layouts.default')
+@extends('layouts.student')
 @section('title', '- Dashboard')
 @section('body-title', 'Dashboard')
 @section('content')
