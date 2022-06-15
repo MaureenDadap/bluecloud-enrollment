@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AcademicScheduleController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CoursesController;
 use App\Http\Controllers\ProgramController;
@@ -73,9 +74,14 @@ Route::post('admin/accepted-enrollee/{id}', [StudentController::class, 'acceptSt
 
 //manage students
 Route::get('admin/students', [StudentController::class, 'showAllStudents']);
+Route::get('admin/students/view', [StudentController::class, 'show']);
 
 //manage programs
 Route::get('admin/programs', [ProgramController::class, 'index']);
 
 //manage courses
 Route::get('admin/courses', [CoursesController::class, 'index']);
+
+//manage academic schedule
+Route::get('admin/academic-schedule', [AcademicScheduleController::class, 'index']);
+Route::post('admin/academic-schedule-edit', [AcademicScheduleController::class, 'update'])->name('academic-year.update');

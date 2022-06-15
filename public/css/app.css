@@ -323,6 +323,10 @@ body.admin {
     background-color: #ffffff;
 }
 
+.sidebar .nav-link.active::after {
+    display: none;
+}
+
 /* -----------------------------------
     Cards
 -------------------------------------*/
@@ -345,6 +349,13 @@ body.admin {
 
 .border-left-primary {
     border-left: 0.25rem solid #4e73df !important;
+}
+
+/* -----------------------------------
+    Modals
+-------------------------------------*/
+.table-user-pic {
+    height: 50px;
 }
 
 /* -----------------------------------
