@@ -93,7 +93,8 @@
                                             <div class="mb-4 pb-2">
                                                 <label class="form-label">Program</label>
                                                 <select name="program" class="form-select form-control-lg">
-                                                    <option value="BS Computer Science" selected>BS Computer Science</option>
+                                                    <option value="BS Computer Science" selected>BS Computer Science
+                                                    </option>
                                                 </select>
                                             </div>
                                             <div class="mb-4 pb-2">
@@ -106,8 +107,15 @@
                                                 </select>
                                             </div>
 
-                                            <input type="submit" name="submit" class="btn btn-primary btn-lg"
-                                                data-mdb-ripple-color="dark" value="Register" />
+                                            <div class="d-flex justify-content-between">
+                                                <input type="submit" name="submit" class="btn btn-primary btn-lg"
+                                                    data-mdb-ripple-color="dark" value="Register" />
+
+                                                <a href="login" class="btn btn-lg btn-outline-light">I have an existing
+                                                    account</a>
+                                            </div>
+
+
 
                                             @if ($errors->any())
                                                 <div class="alert alert-danger mt-3">

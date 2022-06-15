@@ -56,9 +56,9 @@
                             <hr>
                         </li>
                         <!-- Links -->
-                        <li><a class="dropdown-item" href="/student/profile"><i class="bi bi-person fa-fw me-2"></i>My
+                        <li><a class="dropdown-item" href="student/profile"><i class="bi bi-person fa-fw me-2"></i>My
                                 Profile</a></li>
-                        <li><a class="dropdown-item" href="/signout" data-bs-toggle="modal"
+                        <li><a class="dropdown-item" href="signout" data-bs-toggle="modal"
                                 data-bs-target="#staticBackdrop"><i class="bi bi-power fa-fw me-2"></i>Sign Out</a></li>
                     </ul>
                 </div>

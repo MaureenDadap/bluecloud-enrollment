@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Student;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class StudentController extends Controller
 {
@@ -14,7 +15,11 @@ class StudentController extends Controller
      */
     public function index()
     {
-        return view('pages.student.dashboard');
+        if (Auth::check() && Auth::user()->account_type == "student") {
+            return view('pages.student.dashboard');
+        }
+
+        return redirect("/");
     }
 
     /**
@@ -24,7 +29,7 @@ class StudentController extends Controller
      */
     public function create()
     {
-        return view('pages.student.register');
+        //
     }
 
     /**

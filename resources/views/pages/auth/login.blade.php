@@ -3,7 +3,7 @@
 @section('body-title', 'Login')
 
 @section('content')
-    <form action="" method="POST">
+    <form action="{{ route('login.custom') }}" method="POST">
         @csrf
         <section class="gradient-custom-2">
             <div class="container py-5 h-100">
@@ -18,7 +18,8 @@
                                             <p class="lead">Bluecloud Enrollment is a web-based enrollment
                                                 application which is a
                                                 supplement to the existing information system of NU Laguna.</p>
-                                            <a href="/register" class="btn btn-outline-secondary">Register for account instead</a>
+                                            <a href="/register" class="btn btn-outline-secondary">Register for account
+                                                instead</a>
                                         </div>
                                     </div>
                                     <div class="col-lg-6 bg-primary-blue ">
@@ -42,6 +43,12 @@
 
                                             <input type="submit" name="submit" class="btn btn-primary btn-lg"
                                                 data-mdb-ripple-color="dark" value="Login" />
+
+                                            @if ($message = Session::get('error'))
+                                                <div class="alert alert-danger mt-3">
+                                                    <p>{{ $message }}</p>
+                                                </div>
+                                            @endif
 
                                             @if ($errors->any())
                                                 <div class="alert alert-danger mt-3">

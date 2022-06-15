@@ -33,10 +33,18 @@ class UserController extends Controller
         $credentials = $request->only('username', 'password');
 
         if (Auth::attempt($credentials)) {
-            return redirect()->intended('student')->withSuccess("Signed In");
+            $request->session()->regenerate();
+            return redirect()->intended('/');
+
+            // $user = Auth::user()->account_type;
+
+            // if ($user == "student")
+            //     return redirect()->intended('student');
+            // else if ($user == "admin")
+            //     return redirect()->intended('admin');
         }
 
-        return redirect("login")->withSuccess("Login details are not valid");
+        return redirect("login")->with('error', 'Log in details not valid');
     }
 
     public function register()
@@ -103,13 +111,17 @@ class UserController extends Controller
         ]);
     }
 
-    public function dashboard()
+    public function home()
     {
         if (Auth::check()) {
-            return view('student');
+            $userType = Auth::user()->account_type;
+            if ($userType == "student")
+                return redirect('student');
+            else if ($userType == "admin")
+                return redirect('admin');
         }
 
-        return redirect("login")->withSuccess("Not allowed to access");
+        return redirect("login");
     }
 
     public function signOut()
