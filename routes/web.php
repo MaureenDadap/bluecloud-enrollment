@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\CoursesController;
+use App\Http\Controllers\ProgramController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\UserController;
@@ -64,3 +66,15 @@ Route::view('/student/profile', 'pages.student.profile');
 // ----------------- 
 Route::redirect('admin', 'admin/dashboard');
 Route::get('admin/dashboard', [AdminController::class, 'index']);
+
+//manage new enrollees
+Route::get('admin/new-enrollees', [StudentController::class, 'showApplicants']);
+
+//manage students
+Route::get('admin/students', [StudentController::class, 'showAllStudents']);
+
+//manage programs
+Route::get('admin/programs', [ProgramController::class, 'index']);
+
+//manage courses
+Route::get('admin/courses', [CoursesController::class, 'index']);

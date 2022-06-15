@@ -17,8 +17,9 @@ class StudentController extends Controller
         return redirect("/");
     }
 
-    public function profile() {
-        return view ('pages.student.profile');
+    public function profile()
+    {
+        return view('pages.student.profile');
     }
 
     /**
@@ -70,6 +71,13 @@ class StudentController extends Controller
     {
         //
     }
+
+    public function showApplicants()
+    {
+        $students = Student::all()->where('enrollment_status', 0);
+        return view('pages.admin.new-enrollees', compact('students', 'students'));
+    }
+
 
     /**
      * Show the form for editing the specified resource.

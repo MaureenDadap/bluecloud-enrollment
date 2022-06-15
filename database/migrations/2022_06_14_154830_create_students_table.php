@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('program');
             $table->integer('year');
             $table->boolean('application_status')->default(0);
+            $table->boolean('enrollment_status')->default(0);
             $table->string('image')->nullable();
             $table->timestamps();
         });

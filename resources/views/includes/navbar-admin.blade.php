@@ -1,4 +1,4 @@
-<header class="navbar-light sticky-top bg-white">
+<header class="navbar-light bg-white">
     <!-- Logo Nav START -->
     <nav class="navbar">
         <div class="container">

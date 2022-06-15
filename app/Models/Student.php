@@ -15,6 +15,7 @@ class Student extends Model
         'program',
         'year',
         'application_status',
+        'enrollment_status',
         'image'
     ];
 }
