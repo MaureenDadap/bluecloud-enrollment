@@ -79,6 +79,13 @@ class StudentController extends Controller
     }
 
 
+    public function showAllStudents()
+    {
+        $students = Student::all()->where('enrollment_status', 1);
+        return view('pages.admin.students', compact('students', 'students'));
+    }
+
+
     /**
      * Show the form for editing the specified resource.
      *

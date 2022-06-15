@@ -59,9 +59,9 @@ class UserController extends Controller
         ]);
 
         $data = $request->only('email', 'username', 'password');
+        $userId = $this->createUser($data)->id;
         $data2 = $request->only('last_name', "first_name", 'birthdate', 'program', 'year');
-        $check = $this->createUser($data);
-        $check2 = $this->createStudent($data2);
+        $check2 = $this->createStudent($data2, $userId);
 
         return redirect("student")->withSuccess("Have registered");
     }
@@ -75,7 +75,7 @@ class UserController extends Controller
         ]);
     }
 
-    public function createStudent(array $data)
+    public function createStudent(array $data, String $userID)
     {
         $yearStart = '2022';
         $lastId = 0;
@@ -95,6 +95,7 @@ class UserController extends Controller
 
 
         return Student::create([
+            'user_id' => $userID,
             "student_id" => $studentID,
             "last_name" => $data["last_name"],
             "first_name" => $data["first_name"],

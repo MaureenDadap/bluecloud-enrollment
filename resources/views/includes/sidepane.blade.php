@@ -8,46 +8,45 @@
         </li>
         <hr>
         <li class="nav-item">
-            <a class="nav-link" href="admin/dashboard">
+            <a class="nav-link {{ request()->is('admin/dashboard') ? 'active' : '' }}" href="/admin/dashboard">
                 <span class="bi-speedometer"></span> Admin Dashboard</a>
         </li>
         <hr>
         <li class="nav-item">
-            <a class="nav-link" href="admin-candidates.php">
-                <span class="bi-person"></span> New Enrollees</a>
+            <a class="nav-link {{ request()->is('admin/new-enrollees') ? 'active' : '' }}" href="/admin/new-enrollees">
+                <span class="bi-people"></span> New Enrollees</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link " href="admin-voters.php">
+            <a class="nav-link {{ request()->is('admin/students') ? 'active' : '' }}" href="/admin/students">
                 <span class="bi-people"></span> Students</a>
         </li>
         <hr>
         <li class="nav-item">
-            <a class="nav-link" href="admin-election-settings.php">
-                <span class="bi-gear"></span> Programs</a>
+            <a class="nav-link {{ request()->is('admin/programs') ? 'active' : '' }}" href="/admin/programs">
+                <span class="bi-building"></span> Programs</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="admin-election-settings.php">
-                <span class="bi-gear"></span> Courses</a>
+            <a class="nav-link {{ request()->is('admin/courses') ? 'active' : '' }}" href="/admin/courses">
+                <span class="bi-books"></span> Courses</a>
         </li>
         <hr>
         <li class="nav-item">
-            <a class="nav-link" href="admin-election-settings.php">
-                <span class="bi-gear"></span> Transactions</a>
+            <a class="nav-link {{ request()->is('admin/transactions') ? 'active' : '' }}" href="/admin/transactions">
+                <span class="bi-money"></span> Transactions</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="admin-election-settings.php">
-                <span class="bi-gear"></span> Assessments</a>
+            <a class="nav-link {{ request()->is('admin/assessments') ? 'active' : '' }}" href="/admin/assessments">
+                <span class="bi-document"></span> Assessments</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="admin-election-settings.php">
-                <span class="bi-gear"></span> Clearances</a>
+            <a class="nav-link {{ request()->is('admin/clearances') ? 'active' : '' }}" href="/admin/clearances">
+                <span class="bi-gavel"></span> Clearances</a>
         </li>
         <hr>
 
-
         <li class="nav-item">
-            <a class="nav-link" href="admin-election-settings.php">
-                <span class="bi-gear"></span> Academic Year Settings</a>
+            <a class="nav-link {{ request()->is('admin/academic-schedule') ? 'active' : '' }}" href="/admin/academic-schedule">
+                <span class="bi-calendar"></span> Academic Year Settings</a>
         </li>
     </ul>
 </div>
