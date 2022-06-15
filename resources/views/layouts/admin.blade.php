@@ -2,20 +2,23 @@
 <html lang="en">
 @include('includes.head')
 
-<body>
-    <div class="d-flex m-0 p-0">
-        <div>
-            @include('includes.sidepane')
-        </div>
-        <div>
+<body class="admin">
+    <div class="wrapper">
+        @include('includes.sidepane')
+        <div class="main-content">
+            @include('includes.navbar-admin')
             <div class="main py-5">
                 <div class="container">
                     <h2 class="mb-5 body-title text-center">@yield('body-title')</h1>
                         @yield('content')
                 </div>
             </div>
-        </div>
+            <footer>
+                <div class="bg-white">
 
+                </div>
+            </footer>
+        </div>
     </div>
 
     {{-- Vendor Scripts --}}

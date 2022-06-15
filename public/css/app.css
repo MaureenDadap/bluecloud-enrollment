@@ -3,6 +3,7 @@
 :root {
     --dark-blue: #3c4e6d;
     --light-blue: #489df2;
+    --gray-blue: #f8f9fc;
 }
 
 /* -----------------------------------
@@ -232,6 +233,58 @@ nav {
 -------------------------------------*/
 .student-pic {
     height: 150px;
+}
+
+/* -----------------------------------
+    Admin Default
+-------------------------------------*/
+body.admin {
+    padding: 0;
+    margin: 0;
+    background-color: var(--gray-blue);
+    min-height: 100vh;
+}
+
+.admin > .wrapper {
+    display: flex;
+    min-height: 100vh;
+}
+
+.admin > .wrapper > .main-content {
+    flex-grow: 1;
+}
+
+.admin .sidebar {
+    background-color: var(--dark-blue);
+    color: #fff;
+}
+
+.admin .sidebar .brand img {
+    height: 100px;
+    width: fit-content;
+}
+
+.sidebar .brand span,
+.sidebar .brand span:hover {
+    font-weight: 700;
+}
+
+.sidebar .nav-item {
+    margin: 0;
+}
+
+.sidebar .brand span,
+.nav-pills .nav-link {
+    color: #ffffff;
+}
+
+.nav-pills .nav-link:hover {
+    color: var(--light-blue);
+}
+
+.nav-pills .nav-link.active {
+    color: var(--dark-blue);
+    background-color: #ffffff;
 }
 
 /* -----------------------------------
