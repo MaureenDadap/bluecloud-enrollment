@@ -74,7 +74,7 @@ class StudentController extends Controller
 
     public function showApplicants()
     {
-        $students = Student::all()->where('enrollment_status', 0);
+        $students = Student::all()->where('application_status', 0);
         return view('pages.admin.new-enrollees', compact('students', 'students'));
     }
 
@@ -83,6 +83,16 @@ class StudentController extends Controller
     {
         $students = Student::all()->where('enrollment_status', 1);
         return view('pages.admin.students', compact('students', 'students'));
+    }
+
+    public function acceptStudent($id)
+    {
+        $student = Student::find($id);
+        $student->application_status = 1;
+
+        $student->update();
+
+        return redirect('/admin/new-enrollees')->with('success', 'Student application has been accepted');
     }
 
 
@@ -117,6 +127,7 @@ class StudentController extends Controller
      */
     public function destroy(Student $student)
     {
-        //
+        $student->delete();
+        return redirect('/admin/students')->with('success', 'Student deleted successfully');
     }
 }

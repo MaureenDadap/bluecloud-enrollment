@@ -69,6 +69,7 @@ Route::get('admin/dashboard', [AdminController::class, 'index']);
 
 //manage new enrollees
 Route::get('admin/new-enrollees', [StudentController::class, 'showApplicants']);
+Route::post('admin/accepted-enrollee/{id}', [StudentController::class, 'acceptStudent'])->name('student.accept');
 
 //manage students
 Route::get('admin/students', [StudentController::class, 'showAllStudents']);

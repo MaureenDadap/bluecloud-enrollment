@@ -4,7 +4,7 @@
 
 <body class="admin">
     @extends('includes.logout-modal')
-    
+
     <div class="wrapper">
         @include('includes.sidepane')
         <div class="main-content">
