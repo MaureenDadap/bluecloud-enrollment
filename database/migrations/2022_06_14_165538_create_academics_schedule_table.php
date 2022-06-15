@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('academic_schedule', function (Blueprint $table) {
+        Schema::create('academic_schedules', function (Blueprint $table) {
             $table->id();
             $table->year('year_start');
             $table->year('year_end');
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('academic_schedule');
+        Schema::dropIfExists('academic_schedules');
     }
 };

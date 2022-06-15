@@ -75,7 +75,7 @@
                                                 </div>
                                                 <div class="col-md-6 mb-4 pb-2">
                                                     <div class="form-floating">
-                                                        <input type="password" name="confirm_password"
+                                                        <input type="password" name="password_confirmation"
                                                             class="form-control form-control-lg"
                                                             placeholder="Confirm password" />
                                                         <label class="form-label">Confirm password</label>

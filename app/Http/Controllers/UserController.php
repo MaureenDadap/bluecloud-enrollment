@@ -49,12 +49,12 @@ class UserController extends Controller
         $request->validate([
             'last_name' => 'required',
             'first_name' => 'required',
-            'birthdate' => 'required',
+            'birthdate' => 'required|before:today',
             'program' => 'required',
             'year' => 'required',
             'email' => 'required|email|unique:users',
             'username' => 'required|unique:users',
-            'password' => 'required|min:8'
+            'password' => 'required|confirmed|min:8'
         ]);
 
         $data = $request->only('email', 'username', 'password');
@@ -76,9 +76,25 @@ class UserController extends Controller
 
     public function createStudent(array $data)
     {
-        $academicSched = AcademicSchedule::all()->last();
+        $yearStart = '2022';
+        $lastId = 0;
+
+        $academicSched = AcademicSchedule::orderBy('id', 'desc')->take(1)->first();
+        $lastStudent =  Student::orderBy('id', 'desc')->take(1)->first();
+
+        if ($academicSched != null) {
+            $yearStart = $academicSched->year_start;
+        }
+
+        if ($lastStudent != null) {
+            $lastId = $lastStudent->id;
+        }
+
+        $studentID = $yearStart . '-' . ($lastId + 1);
+
+
         return Student::create([
-            "student_id" => "testing",
+            "student_id" => $studentID,
             "last_name" => $data["last_name"],
             "first_name" => $data["first_name"],
             "birthdate" => $data["birthdate"],
