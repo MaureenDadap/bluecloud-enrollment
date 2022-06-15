@@ -35,13 +35,6 @@ class UserController extends Controller
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
             return redirect()->intended('/');
-
-            // $user = Auth::user()->account_type;
-
-            // if ($user == "student")
-            //     return redirect()->intended('student');
-            // else if ($user == "admin")
-            //     return redirect()->intended('admin');
         }
 
         return redirect("login")->with('error', 'Log in details not valid');
@@ -124,10 +117,14 @@ class UserController extends Controller
         return redirect("login");
     }
 
-    public function signOut()
+    public function signOut(Request $request)
     {
-        Session::flush();
         Auth::logout();
-        return redirect("login");
+
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
+        return redirect('/');
     }
 }

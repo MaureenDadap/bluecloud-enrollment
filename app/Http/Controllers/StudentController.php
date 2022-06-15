@@ -8,11 +8,6 @@ use Illuminate\Support\Facades\Auth;
 
 class StudentController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         if (Auth::check() && Auth::user()->account_type == "student") {
@@ -20,6 +15,10 @@ class StudentController extends Controller
         }
 
         return redirect("/");
+    }
+
+    public function profile() {
+        return view ('pages.student.profile');
     }
 
     /**

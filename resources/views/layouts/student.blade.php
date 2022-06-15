@@ -4,6 +4,7 @@
 
 <body>
     @include('includes.navbar')
+    @extends('includes.logout_modal')
 
     <div class="main py-5">
         <div class="container">
