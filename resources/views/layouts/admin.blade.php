@@ -12,6 +12,7 @@
             <div class="main py-5">
                 <div class="container">
                     <h2 class="mb-5 body-title">@yield('body-title')</h1>
+                        @include('includes.alert')
                         @yield('content')
                 </div>
             </div>
