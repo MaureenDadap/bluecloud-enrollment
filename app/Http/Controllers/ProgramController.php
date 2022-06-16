@@ -75,7 +75,6 @@ class ProgramController extends Controller
      */
     public function show($id)
     {
-        //
     }
 
     /**
@@ -86,7 +85,8 @@ class ProgramController extends Controller
      */
     public function edit($id)
     {
-        return view('pages.admin.program-edit');
+        $program = Program::find($id);
+        return view('pages.admin.program-edit', compact('program'));
     }
 
     /**
@@ -98,7 +98,18 @@ class ProgramController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'code' => 'required|unique:programs',
+            'name' => 'required|unique:programs'
+        ]);
+
+        $program = Program::find($id);
+        $program->code = $request->get('code');
+        $program->code = $request->get('name');
+
+        $program->update();
+
+        return redirect('admin/programs' . $id)->with('success', 'Programs details updated successfully');
     }
 
     /**

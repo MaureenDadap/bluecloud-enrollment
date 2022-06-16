@@ -2,7 +2,7 @@
 @section('title', '- Edit Student')
 @section('body-title', 'Edit Student')
 @section('content')
-    <form action="{{ route('admin.student.update', $student->id) }}" method="POST">
+    <form action="/admin/students/update/ {{ $student->id }}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="card shadow">
             <h5 class="card-header py-3">General Information</h5>
@@ -17,7 +17,8 @@
                                 $image = '/uploads/' . $student->image;
                             }
                         @endphp
-                        <img src="{{ $image }}" alt="student image" class="large-profile mb-2">
+                        <img src="{{ $image }}" alt="student image" class="large-profile mb-4">
+                        <input type="file" name="image" class="form-control">
                         <hr>
                         <h5>Student ID: {{ $student->student_id }}</h5>
                     </div>

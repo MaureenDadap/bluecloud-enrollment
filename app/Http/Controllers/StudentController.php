@@ -183,7 +183,15 @@ class StudentController extends Controller
             'birthdate' => 'required|before:today',
             'program' => 'required',
             'year' => 'required',
+            'image' => 'image|mimes:jpeg,png,jpg',
         ]);
+
+        if ($request->image != null) {
+            $imageName = time() . '.' .  $request->image->extension();
+            $request->image->move(public_path('uploads'), $imageName);
+        } else {
+            $imageName = null;
+        }
 
         $student = Student::find($id);
         $student->last_name = $request->get('last_name');
@@ -191,6 +199,8 @@ class StudentController extends Controller
         $student->birthdate = $request->get('birthdate');
         $student->program = $request->get('program');
         $student->year = $request->get('year');
+        $student->image = $imageName;
+
 
         $student->update();
 

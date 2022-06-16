@@ -72,7 +72,7 @@
                                         </div>
                                     </div>
                                     <hr>
-                                    <a href="{{ route('admin.student.edit', $student->id) }}" class="btn btn-warning"><i
+                                    <a href="/admin/students/edit/{{ $student->id }}" class="btn btn-warning"><i
                                             class="bi-pencil"></i> Edit Details</a>
                                 </div>
                             </div>
