@@ -50,16 +50,16 @@
 
                                             <div class="mb-4 pb-2">
                                                 <div class="form-floating">
-                                                    <input type="text" name="email" class="form-control form-control-lg"
-                                                        placeholder="Email address" />
+                                                    <input type="text" name="email"
+                                                        class="form-control form-control-lg" placeholder="Email address" />
                                                     <label class="form-label">Email address</label>
                                                 </div>
                                             </div>
 
                                             <div class="mb-4 pb-2">
                                                 <div class="form-floating">
-                                                    <input type="text" name="username" class="form-control form-control-lg"
-                                                        placeholder="Username" />
+                                                    <input type="text" name="username"
+                                                        class="form-control form-control-lg" placeholder="Username" />
                                                     <label class="form-label" for="">Username</label>
                                                 </div>
                                             </div>
@@ -93,8 +93,11 @@
                                             <div class="mb-4 pb-2">
                                                 <label class="form-label">Program</label>
                                                 <select name="program" class="form-select form-control-lg">
-                                                    <option value="BS Computer Science" selected>BS Computer Science
-                                                    </option>
+                                                    @foreach ($programs as $program)
+                                                        <option value="{{ $program->name }}">
+                                                            {{ $program->name }}
+                                                        </option>
+                                                    @endforeach
                                                 </select>
                                             </div>
                                             <div class="mb-4 pb-2">

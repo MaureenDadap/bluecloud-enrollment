@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\AcademicSchedule;
+use App\Models\Program;
 use App\Models\User;
 use App\Models\Student;
 use Illuminate\Http\Request;
@@ -42,7 +43,8 @@ class UserController extends Controller
 
     public function register()
     {
-        return view('pages.auth.register');
+        $programs = Program::all();
+        return view('pages.auth.register', compact('programs'));
     }
 
     public function customRegistration(Request $request)
