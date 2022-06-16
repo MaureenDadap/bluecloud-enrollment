@@ -194,6 +194,8 @@ class StudentController extends Controller
         }
 
         $student = Student::find($id);
+        $user = User::where('id', $student->user_id)->first();
+
         $student->last_name = $request->get('last_name');
         $student->first_name = $request->get('first_name');
         $student->birthdate = $request->get('birthdate');
@@ -201,8 +203,11 @@ class StudentController extends Controller
         $student->year = $request->get('year');
         $student->image = $imageName;
 
+        $user->image = $imageName;
+
 
         $student->update();
+        $user->update();
 
         return redirect('admin/students/view/' . $id)->with('success', 'Student details updated successfully');
     }

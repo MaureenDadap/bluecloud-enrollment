@@ -35,6 +35,15 @@ class UserController extends Controller
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
+            $request->session()->put('username', Auth::user()->username);
+            $request->session()->put('email', Auth::user()->email);
+            $request->session()->put('userImage', Auth::user()->image);
+            
+            if (Auth::user()->accout_type == 'student') {
+                $studentImage = Student::all()->where('user_id', Auth::user()->id);
+                $studentImage = $studentImage->image;
+            }
+
             return redirect()->intended('/');
         }
 

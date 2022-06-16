@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('username')->unique();
             $table->string('password');
             $table->string('account_type')->default('student');
+            $table->string('image')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
