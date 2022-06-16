@@ -57,7 +57,7 @@
                         </li>
                         <!-- Links -->
                         <li>
-                            <a class="dropdown-item" href="student/profile"><i class="bi bi-person fa-fw me-2"></i>My
+                            <a class="dropdown-item" href="/student/profile"><i class="bi bi-person fa-fw me-2"></i>My
                                 Profile</a>
                         </li>
                         <li>

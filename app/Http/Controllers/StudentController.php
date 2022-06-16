@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Program;
 use App\Models\Student;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Yajra\DataTables\Facades\DataTables;
 
 class StudentController extends Controller
 {
@@ -76,16 +78,64 @@ class StudentController extends Controller
 
     // ADMIN
 
-    public function showApplicants()
+    public function showApplicants(Request $request)
     {
-        $students = Student::all()->where('application_status', 0);
-        return view('pages.admin.new-enrollees', compact('students', 'students'));
+        if ($request->ajax()) {
+            $data = Student::all()->where('application_status', 0);
+
+            return DataTables::of($data)
+                ->addIndexColumn()
+                ->addColumn('action', function ($row) {
+                    $route = '/admin/accepted-enrollee/' . $row['id'] . '';
+
+                    $btn = '<a class="btn btn-info" href="' . $route . '">Accept</a>';
+
+                    return $btn;
+                })
+                ->rawColumns(['action'])
+                ->make(true);
+        }
+        return view('pages.admin.new-enrollees');
     }
 
-    public function showAllStudents()
+    public function showAllStudents(Request $request)
     {
-        $students = Student::all()->where('application_status', 1);
-        return view('pages.admin.students', compact('students', 'students'));
+        if ($request->ajax()) {
+            $data = Student::all()->where('application_status', 1);
+
+            foreach ($data as $e) {
+                if ($e->image == null)
+                    $e->image = '/img/user.png';
+                else
+                    $e->image = '/uploads/' . $e->image;
+
+                if ($e->enrollment_status == 0)
+                    $e->enrollment_status = 'Not enrolled';
+                else
+                    $e->enrollment_status = 'Enrolled';
+            }
+
+            return DataTables::of($data)
+                ->addIndexColumn()
+                ->addColumn('action', function ($row) {
+                    $viewRoute = '/admin/students/view/' . $row['id'] . '';
+                    $deleteRoute = '/admin/students/delete/ ' . $row['id'] . '';
+
+                    $btn = '<a class="btn btn-info" href="' . $viewRoute . '">View</a>
+                    <a class="btn btn-danger" href="' . $deleteRoute . '">Delete</a>';
+
+                    return $btn;
+                })
+                ->addColumn('image', function ($row) {
+                    $img = '<img src="' . $row['image'] . '" alt="user pic" class="table-user-pic">';
+
+                    return $img;
+                })
+                ->rawColumns(['image', 'action'])
+                ->make(true);
+        }
+
+        return view('pages.admin.students');
     }
 
     public function acceptStudent($id)
@@ -152,9 +202,12 @@ class StudentController extends Controller
      * @param  \App\Models\Student  $student
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Student $student)
+    public function destroy($id)
     {
+        $student = Student::find($id);
+        $user = User::find($student->user_id);
         $student->delete();
+        $user->delete();
         return redirect('/admin/students')->with('success', 'Student deleted successfully');
     }
 }

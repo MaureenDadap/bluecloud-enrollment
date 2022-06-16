@@ -70,12 +70,13 @@ Route::get('admin/dashboard', [AdminController::class, 'index']);
 
 //manage new enrollees
 Route::get('admin/new-enrollees', [StudentController::class, 'showApplicants']);
-Route::post('admin/accepted-enrollee/{id}', [StudentController::class, 'acceptStudent'])->name('student.accept');
+Route::post('admin/accepted-enrollee/{id}', [StudentController::class, 'acceptStudent']);
 
 //manage students
 Route::get('admin/students', [StudentController::class, 'showAllStudents']);
-Route::get('admin/students/view/{id}', [StudentController::class, 'showForAdmin'])->name('admin.student.show');
+Route::get('admin/students/view/{id}', [StudentController::class, 'showForAdmin']);
 Route::get('admin/students/edit/{id}', [StudentController::class, 'editForAdmin'])->name('admin.student.edit');
+Route::get('admin/students/delete/{id}', [StudentController::class, 'destroy'])->name('admin.student.delete');
 Route::post('admin/students/update/{id}', [StudentController::class, 'updateForAdmin'])->name('admin.student.update');
 
 //manage programs
