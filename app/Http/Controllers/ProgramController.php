@@ -42,7 +42,7 @@ class ProgramController extends Controller
      */
     public function create()
     {
-        return view('pages.admin.program-view')->with('title', 'Add New Program');
+        return view('pages.admin.program-new');
     }
 
     /**
@@ -53,7 +53,18 @@ class ProgramController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'code' => 'required|unique:programs',
+            'name' => 'required|unique:programs'
+        ]);
+
+        $program = new Program([
+            'code' => $request->get('code'),
+            'name' => $request->get('name')
+        ]);
+
+        $program->save();
+        return redirect('/admin/programs')->with('success', 'Program has been added');
     }
 
     /**
@@ -75,7 +86,7 @@ class ProgramController extends Controller
      */
     public function edit($id)
     {
-        return view('pages.admin.program-view')->with('title', 'Edit Program');
+        return view('pages.admin.program-edit');
     }
 
     /**
