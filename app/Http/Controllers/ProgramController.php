@@ -99,8 +99,8 @@ class ProgramController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'code' => 'required|unique:programs',
-            'name' => 'required|unique:programs'
+            'code' => 'required',
+            'name' => 'required'
         ]);
 
         $program = Program::find($id);
@@ -120,6 +120,8 @@ class ProgramController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $program = Program::find($id);
+        $program->delete();
+        return redirect('/admin/programs')->with('success', 'Program deleted successfully');
     }
 }

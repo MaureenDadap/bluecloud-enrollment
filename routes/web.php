@@ -89,6 +89,11 @@ Route::get('admin/programs/delete/{id}', [ProgramController::class, 'destroy']);
 
 //manage courses
 Route::get('admin/courses', [CoursesController::class, 'index']);
+Route::get('admin/course/new', [CoursesController::class, 'create']);
+Route::post('admin/course/created', [CoursesController::class, 'store']);
+Route::get('admin/course/edit/{id}', [CoursesController::class, 'edit']);
+Route::post('admin/course/update/{id}', [CoursesController::class, 'update']);
+Route::get('admin/course/delete/{id}', [CoursesController::class, 'destroy']);
 
 //manage academic schedule
 Route::get('admin/academic-schedule', [AcademicScheduleController::class, 'index']);

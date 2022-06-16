@@ -15,9 +15,13 @@ class CreateAdminUserSeeder extends Seeder
      */
     public function run()
     {
-        $user = User::create([
+        User::create([
+            'email' => 'admin',
             'username' => 'admin',
-            'password' => 'admin'
+            'password' => 'admin',
+            'account_type' => 'admin',
+            'created_at' => date('Y:mm:dd'),
+            'updated_at' => date('Y:mm:dd'),
         ]);
     }
 }

@@ -46,7 +46,7 @@
 
         <li class="nav-item">
             <a class="nav-link {{ request()->is('admin/academic-schedule') ? 'active' : '' }}" href="/admin/academic-schedule">
-                <span class="bi-calendar-event"></span> Academic Year Settings</a>
+                <span class="bi-calendar-event"></span> A.Y. Settings</a>
         </li>
     </ul>
 </div>

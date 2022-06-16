@@ -7,8 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Courses extends Model
 {
-    //todo
     protected $fillable = [
-        'first_name', 'last_name', 'address', 'course', 'year'
+        'code', 'name', 'program_code', 'year', 'days', 'time_start', 'time_end', 'instructor', 'schedule', 'slots', 'units'
     ];
 }

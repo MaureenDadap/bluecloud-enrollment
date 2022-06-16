@@ -17,7 +17,12 @@ return new class extends Migration
             $table->id();
             $table->string('code');
             $table->string('name');
-            $table->string('schedule');
+            $table->string('program_code');
+            $table->string('year');
+            $table->string('days');
+            $table->time('time_start');
+            $table->time('time_end');
+            $table->string('instructor');
             $table->integer('slots');
             $table->integer('units');
             $table->timestamps();

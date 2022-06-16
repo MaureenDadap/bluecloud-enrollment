@@ -4,6 +4,8 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -14,11 +16,32 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        //admin seeder
+        DB::table('users')->insert([
+            'email' => 'admin@gmail.com',
+            'username' => 'admin',
+            'password' => Hash::make('admin'),
+            'account_type' => 'admin',
+            'created_at' => date('Y-m-d h:m:s'),
+            'updated_at' => date('Y-m-d h:m:s'),
+        ]);
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        //academic year seeder
+        DB::table('academic_schedules')->insert([
+            'year_start' => '2022',
+            'year_end' => '2023',
+            'term' => '1',
+            'created_at' => date('Y-m-d h:m:s'),
+            'updated_at' => date('Y-m-d h:m:s'),
+        ]);
+
+
+        //PROGRAMS SEEDER
+        DB::table('programs')->insert([
+            'code' => 'BSCS',
+            'name' => 'BS Computer Science',
+            'created_at' => date('Y-m-d h:m:s'),
+            'updated_at' => date('Y-m-d h:m:s'),
+        ]);
     }
 }

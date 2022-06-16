@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\Program;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class ProgramsSeeder extends Seeder
 {
@@ -15,9 +16,11 @@ class ProgramsSeeder extends Seeder
      */
     public function run()
     {
-        $program = Program::create([
+        DB::table('programs')->insert([
             'code' => 'BSCS',
-            'name' => 'BS Computer Science'
+            'name' => 'BS Computer Science',
+            'created_at' => date('Y:mm:dd'),
+            'updated_at' => date('Y:mm:dd'),
         ]);
     }
 }
