@@ -2,11 +2,11 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
+use App\Models\Program;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class CreateAdminUserSeeder extends Seeder
+class ProgramsSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,9 +15,9 @@ class CreateAdminUserSeeder extends Seeder
      */
     public function run()
     {
-        $user = User::create([
-            'username' => 'admin',
-            'password' => 'admin'
+        $program = Program::create([
+            'code' => 'BSCS',
+            'name' => 'BS Computer Science'
         ]);
     }
 }
