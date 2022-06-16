@@ -88,7 +88,7 @@ class StudentController extends Controller
                 ->addColumn('action', function ($row) {
                     $route = '/admin/accepted-enrollee/' . $row['id'] . '';
 
-                    $btn = '<a class="btn btn-info" href="' . $route . '">Accept</a>';
+                    $btn = '<a class="btn btn-info" href="' . $route . '"><i class="bi-check-circle text-white"></i>Accept</a>';
 
                     return $btn;
                 })
@@ -121,8 +121,8 @@ class StudentController extends Controller
                     $viewRoute = '/admin/students/view/' . $row['id'] . '';
                     $deleteRoute = '/admin/students/delete/ ' . $row['id'] . '';
 
-                    $btn = '<a class="btn btn-info" href="' . $viewRoute . '">View</a>
-                    <a class="btn btn-danger" href="' . $deleteRoute . '">Delete</a>';
+                    $btn = '<a class="btn btn-info" href="' . $viewRoute . '"><i class="bi-eye text-white"></i></a>
+                    <a class="btn btn-danger" href="' . $deleteRoute . '"><i class="bi-trash"></i></a>';
 
                     return $btn;
                 })

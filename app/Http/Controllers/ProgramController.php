@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Program;
 use Illuminate\Http\Request;
+use Yajra\DataTables\Facades\DataTables;
 
 class ProgramController extends Controller
 {
@@ -11,8 +13,25 @@ class ProgramController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        if ($request->ajax()) {
+            $data = Program::all();
+
+            return DataTables::of($data)
+                ->addIndexColumn()
+                ->addColumn('action', function ($row) {
+                    $editRoute = '/admin/programs/edit/' . $row['id'] . '';
+                    $deleteRoute = '/admin/programs/delete/ ' . $row['id'] . '';
+
+                    $btn = '<a class="btn btn-info" href="' . $editRoute . '"><i class="bi-pencil text-white"></i></a>
+                    <a class="btn btn-danger" href="' . $deleteRoute . '"><i class="bi-trash"></i></a>';
+
+                    return $btn;
+                })
+                ->rawColumns(['action'])
+                ->make(true);
+        }
         return view('pages.admin.programs');
     }
 
@@ -23,7 +42,7 @@ class ProgramController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.admin.program-view')->with('title', 'Add New Program');
     }
 
     /**
@@ -56,7 +75,7 @@ class ProgramController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('pages.admin.program-view')->with('title', 'Edit Program');
     }
 
     /**

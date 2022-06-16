@@ -3,9 +3,6 @@
 @section('body-title', 'Academic Year Settings')
 
 @section('content')
-
-
-
     <form action="{{ route('academic-year.update') }}" method="post">
         @csrf
         <div class="card shadow">

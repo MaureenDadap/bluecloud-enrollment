@@ -75,12 +75,17 @@ Route::post('admin/accepted-enrollee/{id}', [StudentController::class, 'acceptSt
 //manage students
 Route::get('admin/students', [StudentController::class, 'showAllStudents']);
 Route::get('admin/students/view/{id}', [StudentController::class, 'showForAdmin']);
-Route::get('admin/students/edit/{id}', [StudentController::class, 'editForAdmin'])->name('admin.student.edit');
-Route::get('admin/students/delete/{id}', [StudentController::class, 'destroy'])->name('admin.student.delete');
-Route::post('admin/students/update/{id}', [StudentController::class, 'updateForAdmin'])->name('admin.student.update');
+Route::get('admin/students/edit/{id}', [StudentController::class, 'editForAdmin']);
+Route::get('admin/students/delete/{id}', [StudentController::class, 'destroy']);
+Route::post('admin/students/update/{id}', [StudentController::class, 'updateForAdmin']);
 
 //manage programs
 Route::get('admin/programs', [ProgramController::class, 'index']);
+Route::get('admin/programs/new', [ProgramController::class, 'create']);
+Route::post('admin/programs/created', [ProgramController::class, 'store']);
+Route::get('admin/programs/edit/{id}', [ProgramController::class, 'edit']);
+Route::post('admin/programs/update/{id}', [ProgramController::class, 'update']);
+Route::get('admin/programs/delete/{id}', [ProgramController::class, 'destroy']);
 
 //manage courses
 Route::get('admin/courses', [CoursesController::class, 'index']);
