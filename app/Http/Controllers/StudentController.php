@@ -82,13 +82,14 @@ class StudentController extends Controller
     {
         if ($request->ajax()) {
             $data = Student::all()->where('application_status', 0);
+            $i = 0;
 
-            return DataTables::of($data)
+            return DataTables::of($data, $i)
                 ->addIndexColumn()
                 ->addColumn('action', function ($row) {
                     $route = '/admin/accepted-enrollee/' . $row['id'] . '';
 
-                    $btn = '<a class="btn btn-info" href="' . $route . '"><i class="bi-check-circle text-white"></i>Accept</a>';
+                    $btn = '<a class="btn btn-info text-white" href="' . $route . '"><i class="bi-check-circle"></i> Accept</a>';
 
                     return $btn;
                 })

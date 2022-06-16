@@ -40,8 +40,7 @@
                 serverSide: true,
                 ajax: "{{ url('/admin/new-enrollees') }}",
                 columns: [{
-                        data: 'id',
-                        name: 'id'
+                        "data": 'DT_RowIndex'
                     },
                     {
                         data: 'last_name',
@@ -70,8 +69,8 @@
                     {
                         data: 'action',
                         name: 'action',
-                        orderable: true,
-                        searchable: true
+                        orderable: false,
+                        searchable: false
                     },
                 ]
             });

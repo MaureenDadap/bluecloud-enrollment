@@ -43,8 +43,7 @@
                 serverSide: true,
                 ajax: "{{ url('/admin/students') }}",
                 columns: [{
-                        data: 'id',
-                        name: 'id'
+                        "data": 'DT_RowIndex'
                     },
                     {
                         data: 'image',
@@ -81,8 +80,8 @@
                     {
                         data: 'action',
                         name: 'action',
-                        orderable: true,
-                        searchable: true
+                        orderable: false,
+                        searchable: false
                     },
                 ]
             });

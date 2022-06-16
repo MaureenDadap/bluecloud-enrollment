@@ -42,8 +42,7 @@
                 serverSide: true,
                 ajax: "{{ url('/admin/programs') }}",
                 columns: [{
-                        data: 'id',
-                        name: 'id'
+                        "data": 'DT_RowIndex'
                     },
                     {
                         data: 'code',
@@ -56,8 +55,8 @@
                     {
                         data: 'action',
                         name: 'action',
-                        orderable: true,
-                        searchable: true
+                        orderable: false,
+                        searchable: false
                     },
                 ]
             });
