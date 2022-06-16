@@ -17,7 +17,7 @@
                             <td>Birthdate</td>
                             <td>Program</td>
                             <td>Year</td>
-                            <td>Enrollment Status</td>
+                            <td>Term Enrollment Status</td>
                             <td>Action</td>
                         </tr>
                     </thead>
@@ -27,9 +27,17 @@
                             $i = 0;
                         @endphp
                         @foreach ($students as $student)
+                            @php
+                                if ($student->image == null) {
+                                    $image = '/img/user.png';
+                                } else {
+                                    $image = '/uploads/' . $student->image;
+                                }
+                            @endphp
+
                             <tr>
                                 <td>{{ ++$i }}</td>
-                                <td><img src="{{ $student->image }}" alt="user pic" class="table-user-pic"></td>
+                                <td><img src="{{ $image }}" alt="user pic" class="table-user-pic"></td>
                                 <td>{{ $student->student_id }}</td>
                                 <td>{{ $student->last_name }}</td>
                                 <td>{{ $student->first_name }}</td>
@@ -46,10 +54,8 @@
                                 <td>
                                     <form action="" method="POST">
                                         @csrf
-                                        <a class="btn btn-info" href="{{ route('student.show', $student->id) }}">Show</a>
-                                        <a class="btn btn-warning"
-                                            href="{{ route('student.edit', $student->id) }}">Edit</a>
-
+                                        <a class="btn btn-info"
+                                            href="{{ route('admin.student.show', $student->id) }}">View</a>
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-danger">Delete</button>
                                     </form>

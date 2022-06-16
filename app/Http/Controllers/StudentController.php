@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Program;
 use App\Models\Student;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -72,12 +73,14 @@ class StudentController extends Controller
         return view('student.view', compact('student'));
     }
 
+
+    // ADMIN
+
     public function showApplicants()
     {
         $students = Student::all()->where('application_status', 0);
         return view('pages.admin.new-enrollees', compact('students', 'students'));
     }
-
 
     public function showAllStudents()
     {
@@ -95,6 +98,11 @@ class StudentController extends Controller
         return redirect('/admin/new-enrollees')->with('success', 'Student application has been accepted');
     }
 
+    public function showForAdmin($id)
+    {
+        $student = Student::find($id);
+        return view('pages.admin.student-view', compact('student'));
+    }
 
     /**
      * Show the form for editing the specified resource.
@@ -102,9 +110,11 @@ class StudentController extends Controller
      * @param  \App\Models\Student  $student
      * @return \Illuminate\Http\Response
      */
-    public function edit(Student $student)
+    public function editForAdmin($id)
     {
-        //
+        $student = Student::find($id);
+        $programs = Program::all();
+        return view('pages.admin.student-edit', compact('student', 'programs'));
     }
 
     /**
@@ -114,9 +124,26 @@ class StudentController extends Controller
      * @param  \App\Models\Student  $student
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Student $student)
+    public function updateForAdmin(Request $request, $id)
     {
-        //
+        $request->validate([
+            'last_name' => 'required',
+            'first_name' => 'required',
+            'birthdate' => 'required|before:today',
+            'program' => 'required',
+            'year' => 'required',
+        ]);
+
+        $student = Student::find($id);
+        $student->last_name = $request->get('last_name');
+        $student->first_name = $request->get('first_name');
+        $student->birthdate = $request->get('birthdate');
+        $student->program = $request->get('program');
+        $student->year = $request->get('year');
+
+        $student->update();
+
+        return redirect('admin/students/view/' . $id)->with('success', 'Student details updated successfully');
     }
 
     /**

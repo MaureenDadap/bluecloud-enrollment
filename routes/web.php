@@ -74,7 +74,9 @@ Route::post('admin/accepted-enrollee/{id}', [StudentController::class, 'acceptSt
 
 //manage students
 Route::get('admin/students', [StudentController::class, 'showAllStudents']);
-Route::get('admin/students/view', [StudentController::class, 'show']);
+Route::get('admin/students/view/{id}', [StudentController::class, 'showForAdmin'])->name('admin.student.show');
+Route::get('admin/students/edit/{id}', [StudentController::class, 'editForAdmin'])->name('admin.student.edit');
+Route::post('admin/students/update/{id}', [StudentController::class, 'updateForAdmin'])->name('admin.student.update');
 
 //manage programs
 Route::get('admin/programs', [ProgramController::class, 'index']);

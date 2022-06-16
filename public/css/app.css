@@ -224,9 +224,28 @@ nav {
 }
 
 /* -----------------------------------
-    Student Default
+    Student
 -------------------------------------*/
-.body-title {
+.large-profile {
+    height: 250px;
+    width: 250px;
+    object-fit: cover;
+}
+
+nav .pagination {
+    border: none;
+}
+
+.nav-tabs.pagination .nav-link {
+    color: var(--dark-blue);
+}
+
+.nav-tabs.pagination .nav-link.active {
+    color: var(--light-blue);
+}
+
+.nav-tabs.pagination .nav-link.active::after {
+    display: none;
 }
 
 /* -----------------------------------
@@ -321,10 +340,17 @@ body.admin {
 .nav-pills .nav-link.active {
     color: var(--dark-blue);
     background-color: #ffffff;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
 }
 
 .sidebar .nav-link.active::after {
     display: none;
+}
+
+.sidebar hr {
+    margin-left: 1rem;
+    margin-right: 1rem;
 }
 
 /* -----------------------------------
