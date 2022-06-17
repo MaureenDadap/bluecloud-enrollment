@@ -12,7 +12,7 @@
                         <div class="card card-registration card-registration-2 my-5" style="border-radius: 15px;">
                             <div class="card-body p-0">
                                 <div class="row g-0">
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-6 d-flex flex-column justify-content-center align-items-center">
                                         <div class="p-5 text-center">
                                             <img src="../img/logo-title.png" alt="logo" class="logo large mb-3">
                                             <p class="lead">Bluecloud Enrollment is a web-based enrollment

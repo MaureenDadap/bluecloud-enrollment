@@ -26,6 +26,7 @@
                             <td>Name</td>
                             <td>Program</td>
                             <td>Year</td>
+                            <td>Term</td>
                             <td>Schedule</td>
                             <td>Instructor</td>
                             <td>Slots</td>
@@ -65,6 +66,10 @@
                     {
                         data: 'year',
                         name: 'year'
+                    }, 
+                    {
+                        data: 'term',
+                        name: 'term'
                     },
                     {
                         data: 'schedule',

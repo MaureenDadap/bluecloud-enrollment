@@ -379,8 +379,12 @@ body.admin {
 }
 
 /* -----------------------------------
-    Modals
+    Tables
 -------------------------------------*/
+thead {
+    font-weight: 500;
+}
+
 .table-user-pic {
     height: 50px;
 }

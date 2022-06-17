@@ -38,10 +38,10 @@ class UserController extends Controller
             $request->session()->put('username', Auth::user()->username);
             $request->session()->put('email', Auth::user()->email);
             $request->session()->put('userImage', Auth::user()->image);
-            
-            if (Auth::user()->accout_type == 'student') {
-                $studentImage = Student::all()->where('user_id', Auth::user()->id);
-                $studentImage = $studentImage->image;
+
+            if (Auth::user()->account_type == 'student') {
+                $studentID = Student::where('user_id', Auth::user()->id)->first()->id;
+                $request->session()->put('studentID', $studentID);
             }
 
             return redirect()->intended('/');

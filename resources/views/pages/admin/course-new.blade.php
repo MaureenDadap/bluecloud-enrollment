@@ -38,6 +38,14 @@
                                     <option value="4">4</option>
                                 </select>
                             </div>
+                            <div class="col-auto">
+                                <label class="form-label"><strong>Term:</strong></label>
+                                <select name="term" class="form-select form-control">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                </select>
+                            </div>
                             <div class="col">
                                 <label class="form-label"><strong>Instructor:</strong></label>
                                 <input type="text" name="instructor" class="form-control">

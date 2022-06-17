@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('program_code');
             $table->string('year');
+            $table->string('term');
             $table->string('days');
             $table->time('time_start');
             $table->time('time_end');

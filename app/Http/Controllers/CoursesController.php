@@ -63,6 +63,7 @@ class CoursesController extends Controller
             'name' => 'required',
             'program_code' => 'required',
             'year' => 'required',
+            'term' => 'required',
             'instructor' => 'required',
             'days' => 'required',
             'time_start' => 'required',
@@ -76,6 +77,7 @@ class CoursesController extends Controller
             'code' => $request->get('code'),
             'program_code' => $request->get('program_code'),
             'year' => $request->get('year'),
+            'term' => $request->get('term'),
             'instructor' => $request->get('instructor'),
             'days' => implode(' ', (array) $request['days']),
             'time_start' => $request->get('time_start'),
@@ -126,6 +128,7 @@ class CoursesController extends Controller
             'name' => 'required',
             'program_code' => 'required',
             'year' => 'required',
+            'term' => 'required',
             'instructor' => 'required',
             'days' => 'required',
             'time_start' => 'required',
@@ -139,6 +142,7 @@ class CoursesController extends Controller
         $course->name = $request->get('name');
         $course->program_code = $request->get('program_code');
         $course->year = $request->get('year');
+        $course->term = $request->get('term');
         $course->instructor = $request->get('instructor');
         $course->days = implode(' ', (array) $request['days']);
         $course->time_start = $request->get('time_start');

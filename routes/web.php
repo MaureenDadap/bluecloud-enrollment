@@ -3,6 +3,8 @@
 use App\Http\Controllers\AcademicScheduleController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CoursesController;
+use App\Http\Controllers\OnlineEnrollmentController;
+use App\Http\Controllers\PaypalController;
 use App\Http\Controllers\ProgramController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StudentController;
@@ -37,11 +39,11 @@ Route::get('signout', [UserController::class, 'signOut']);
 Route::redirect('student', 'student/dashboard');
 Route::get('student/dashboard', [StudentController::class, 'index']);
 
+//online enrollment
+Route::get('student/online-enrollment', [OnlineEnrollmentController::class, 'index']);
+Route::post('enrollment/payment', [OnlineEnrollmentController::class, 'paymentView'])->name('enrollment.payment');
 
-Route::get('/student/online-enrollment', function () {
-    return view('pages.student.online-enrollment');
-});
-
+//COR 
 Route::get('/student/cor', function () {
     return view('pages.student.cor');
 });
@@ -98,3 +100,11 @@ Route::get('admin/course/delete/{id}', [CoursesController::class, 'destroy']);
 //manage academic schedule
 Route::get('admin/academic-schedule', [AcademicScheduleController::class, 'index']);
 Route::post('admin/academic-schedule-edit', [AcademicScheduleController::class, 'update'])->name('academic-year.update');
+
+// ----------------- 
+//   Payment Routes
+// ----------------- 
+Route::get('create-transaction', [PaypalController::class, 'createTransaction'])->name('createTransaction');
+Route::get('process-transaction', [PayPalController::class, 'processTransaction'])->name('processTransaction');
+Route::get('success-transaction', [PayPalController::class, 'successTransaction'])->name('successTransaction');
+Route::get('cancel-transaction', [PayPalController::class, 'cancelTransaction'])->name('cancelTransaction');

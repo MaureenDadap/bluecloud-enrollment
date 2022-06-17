@@ -94,8 +94,8 @@
                                                 <label class="form-label">Program</label>
                                                 <select name="program" class="form-select form-control-lg">
                                                     @foreach ($programs as $program)
-                                                        <option value="{{ $program->name }}">
-                                                            {{ $program->name }}
+                                                        <option value="{{ $program->code }}">
+                                                            {{ $program->code . ' - ' . $program->name }}
                                                         </option>
                                                     @endforeach
                                                 </select>
@@ -117,8 +117,6 @@
                                                 <a href="login" class="btn btn-lg btn-outline-light">I have an existing
                                                     account</a>
                                             </div>
-
-
 
                                             @if ($errors->any())
                                                 <div class="alert alert-danger mt-3">
