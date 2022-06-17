@@ -2,7 +2,7 @@
     <!-- Logo Nav START -->
     <nav class="navbar">
         <div class="container">
-            <div class="d-flex justify-content-end w-100">
+            <div class="d-flex justify-content-end w-100 px-4">
                 <!-- Profile START -->
                 <div class="dropdown my-2 ">
                     <a class="avatar avatar-sm p-0" href="#" id="profileDropdown" role="button"

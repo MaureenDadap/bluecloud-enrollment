@@ -9,7 +9,7 @@
         @include('includes.sidepane')
         <div class="main-content">
             @include('includes.navbar-admin')
-            <div class="main p-5">
+            <div class="main p-4">
                 <div class="container">
                     <h2 class="mb-5 body-title">@yield('body-title')</h1>
                         @include('includes.alert')

@@ -336,7 +336,7 @@ body.admin {
 
 .nav-pills .nav-link {
     font-size: 0.9rem;
-    color: #cacaca;
+    color: #808595;
 }
 
 .nav-pills .nav-link:hover {
@@ -348,6 +348,10 @@ body.admin {
     background-color: #ffffff;
     margin-left: 0.5rem;
     margin-right: 0.5rem;
+}
+
+.sidebar .nav-link > span {
+    margin-right: 0.7em;
 }
 
 .sidebar .nav-link.active::after {
