@@ -1,5 +1,5 @@
 <div class="sidebar">
-    <ul class="nav nav-pills flex-column px-2 py-4 ">
+    <ul class="nav nav-pills flex-column pe-2 ">
         <li class="nav-item brand">
             <a class="nav-link d-flex flex-column align-items-center" href="/">
                 <img src="/img/logo.png" alt="logo">

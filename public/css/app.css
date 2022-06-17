@@ -2,6 +2,7 @@
 
 :root {
     --dark-blue: #3c4e6d;
+    --v-dark-blue: #1b2537;
     --light-blue: #489df2;
     --gray-blue: #f8f9fc;
 }
@@ -311,7 +312,7 @@ body.admin {
 
 .admin .sidebar {
     min-width: 270px;
-    background-color: var(--dark-blue);
+    background-color: var(--v-dark-blue);
     color: #fff;
 }
 
@@ -329,13 +330,17 @@ body.admin {
     margin: 0;
 }
 
-.sidebar .brand span,
+.sidebar .brand span {
+    color: #fff;
+}
+
 .nav-pills .nav-link {
-    color: #ffffff;
+    font-size: 0.9rem;
+    color: #cacaca;
 }
 
 .nav-pills .nav-link:hover {
-    color: var(--light-blue);
+    color: #fff;
 }
 
 .nav-pills .nav-link.active {
@@ -352,6 +357,7 @@ body.admin {
 .sidebar hr {
     margin-left: 1rem;
     margin-right: 1rem;
+    color: #cacaca8e;
 }
 
 /* -----------------------------------
