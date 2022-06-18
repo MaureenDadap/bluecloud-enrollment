@@ -42,13 +42,19 @@ class AcademicScheduleController extends Controller
             'term' => 'required',
         ]);
 
-        AcademicSchedule::create([
-            'year_start' => $request->year_start,
-            'year_end' => $request->year_end,
-            'term' => $request->term,
-        ]);
+        //get latest sched currently saved
+        $schedule = AcademicSchedule::latest()->first();
+        if ($request->year_start == $schedule->year_start && $request->term == $schedule->term) {
+            return redirect('/admin/academic-schedule')->with('error', 'Schedule is the same as before.');
+        } else {
+            AcademicSchedule::create([
+                'year_start' => $request->year_start,
+                'year_end' => $request->year_end,
+                'term' => $request->term,
+            ]);
 
-        return redirect('/admin/academic-schedule')->with('success', 'Academic year schedule updated successfully');
+            return redirect('/admin/academic-schedule')->with('success', 'Academic year schedule updated successfully');
+        }
     }
 
     /**
