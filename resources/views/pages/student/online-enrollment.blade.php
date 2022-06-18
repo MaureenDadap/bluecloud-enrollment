@@ -27,7 +27,7 @@
                     Course Registration
                 </h5>
                 <div class="card-body">
-                    <form action="{{ route('enrollment.payment') }}" method="POST">
+                    <form action="{{ route('enrollment.register') }}" method="POST">
                         @csrf
                         <table class="table table-bordered">
                             <thead>
@@ -50,6 +50,8 @@
                                     @foreach ($courses as $course)
                                         <tr>
                                             <td><input type="checkbox" name="course_ids[]" value="{{ $course->id }}"></td>
+                                            <td><input type="checkbox" name="student_id" value="{{ $student->id }}">
+                                            </td>
                                             <td>{{ $course->code }}</td>
                                             <td>{{ $course->name }}</td>
                                             <td> {{ $course['days'] . ', ' . date('g:h a', strtotime($course['time_start'])) . ' - ' . date('g:h a', strtotime($course['time_end'])) }}
@@ -81,7 +83,7 @@
             </div>
 
 
-            {{-- <a href="/student/payment" class="btn btn-success mt-5">Pay Fees</a> --}}
+            <a href="{{ route('enrollment.payment') }}" class="btn btn-success mt-5">Pay Fees</a>
         </div>
     </div>
 

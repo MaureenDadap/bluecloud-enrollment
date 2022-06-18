@@ -41,6 +41,7 @@ Route::get('student/dashboard', [StudentController::class, 'index']);
 
 //online enrollment
 Route::get('student/online-enrollment', [OnlineEnrollmentController::class, 'index']);
+Route::post('enrollment/register', [OnlineEnrollmentController::class, 'registerCourses'])->name('enrollment.register');
 Route::post('enrollment/payment', [OnlineEnrollmentController::class, 'paymentView'])->name('enrollment.payment');
 
 //COR 

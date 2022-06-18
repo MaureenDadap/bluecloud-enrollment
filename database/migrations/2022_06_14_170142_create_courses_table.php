@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('courses', function (Blueprint $table) {
             $table->id();
-            $table->string('code');
+            $table->string('code')->unique();
             $table->string('name');
             $table->string('program_code');
             $table->string('year');

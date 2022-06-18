@@ -138,21 +138,48 @@ class CoursesController extends Controller
         ]);
 
         $course = Courses::find($id);
-        $course->code = $request->get('code');
-        $course->name = $request->get('name');
-        $course->program_code = $request->get('program_code');
-        $course->year = $request->get('year');
-        $course->term = $request->get('term');
-        $course->instructor = $request->get('instructor');
-        $course->days = implode(' ', (array) $request['days']);
-        $course->time_start = $request->get('time_start');
-        $course->time_end = $request->get('time_end');
-        $course->slots = $request->get('slots');
-        $course->units = $request->get('units');
+        $countSameCode = Courses::where('code', $request->code)->count();
+
+        if ($countSameCode > 0) {
+            if ($course->code == $request->code) {
+                $course->name = $request->get('name');
+                $course->program_code = $request->get('program_code');
+                $course->year = $request->get('year');
+                $course->term = $request->get('term');
+                $course->instructor = $request->get('instructor');
+                $course->days = implode(' ', (array) $request['days']);
+                $course->time_start = $request->get('time_start');
+                $course->time_end = $request->get('time_end');
+                $course->slots = $request->get('slots');
+                $course->units = $request->get('units');
 
 
-        $course->update();
-        return redirect('/admin/courses')->with('success', 'Course details updated successfully');
+                $course->update();
+
+                return redirect('/admin/courses')->with('success', 'Course details updated successfully');
+            } else
+                return redirect('admin/courses')->with('error', 'Course code is already in use');
+        } else {
+            $course->code = $request->get('code');
+            $course->name = $request->get('name');
+            $course->program_code = $request->get('program_code');
+            $course->year = $request->get('year');
+            $course->term = $request->get('term');
+            $course->instructor = $request->get('instructor');
+            $course->days = implode(' ', (array) $request['days']);
+            $course->time_start = $request->get('time_start');
+            $course->time_end = $request->get('time_end');
+            $course->slots = $request->get('slots');
+            $course->units = $request->get('units');
+
+
+            $course->update();
+            return redirect('/admin/courses')->with('success', 'Course details updated successfully');
+
+            $course->update();
+
+            return redirect('/admin/courses')->with('success', 'Course details updated successfully');
+        }
     }
 
     /**

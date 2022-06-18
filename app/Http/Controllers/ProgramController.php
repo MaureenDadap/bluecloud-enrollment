@@ -104,12 +104,25 @@ class ProgramController extends Controller
         ]);
 
         $program = Program::find($id);
-        $program->code = $request->get('code');
-        $program->code = $request->get('name');
+        $countSameCode = Program::where('code', $request->code)->count();
 
-        $program->update();
+        if ($countSameCode > 0) {
+            if ($program->code == $request->code) {
+                $program->name = $request->get('name');
 
-        return redirect('admin/programs' . $id)->with('success', 'Programs details updated successfully');
+                $program->update();
+
+                return redirect('admin/programs')->with('success', 'Programs details updated successfully');
+            } else
+                return redirect('admin/programs')->with('error', 'Program code is already in use');
+        } else {
+            $program->code = $request->get('code');
+            $program->name = $request->get('name');
+
+            $program->update();
+
+            return redirect('admin/programs')->with('success', 'Programs details updated successfully');
+        }
     }
 
     /**
