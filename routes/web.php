@@ -99,7 +99,8 @@ Route::get('admin/course/delete/{id}', [CoursesController::class, 'destroy']);
 
 //manage academic schedule
 Route::get('admin/academic-schedule', [AcademicScheduleController::class, 'index']);
-Route::post('admin/academic-schedule-edit', [AcademicScheduleController::class, 'update'])->name('academic-year.update');
+Route::post('admin/academic-schedule-edit', [AcademicScheduleController::class, 'store'])->name('academic-year.store');
+// Route::post('admin/academic-schedule-edit', [AcademicScheduleController::class, 'update'])->name('academic-year.update');
 
 // ----------------- 
 //   Payment Routes

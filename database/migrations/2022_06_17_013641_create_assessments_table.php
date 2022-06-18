@@ -23,7 +23,6 @@ return new class extends Migration
             $table->decimal('misc_price');
             $table->decimal('total_price');
             $table->boolean('enroll_status');
-            $table->boolean('is_valid');
             $table->timestamps();
         });
     }

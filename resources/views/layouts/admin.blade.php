@@ -25,6 +25,9 @@
     </script>
     {{-- DataTables --}}
     @yield('datatables-script')
+
+    {{-- Custom scripts --}}
+    @yield('custom-scripts')
 </body>
 
 </html>

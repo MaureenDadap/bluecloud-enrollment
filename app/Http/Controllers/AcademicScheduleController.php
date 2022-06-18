@@ -36,7 +36,19 @@ class AcademicScheduleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'year_start' => 'required|integer|digits:4',
+            'year_end' => 'required|integer|digits:4',
+            'term' => 'required',
+        ]);
+
+        AcademicSchedule::create([
+            'year_start' => $request->year_start,
+            'year_end' => $request->year_end,
+            'term' => $request->term,
+        ]);
+
+        return redirect('/admin/academic-schedule')->with('success', 'Academic year schedule updated successfully');
     }
 
     /**

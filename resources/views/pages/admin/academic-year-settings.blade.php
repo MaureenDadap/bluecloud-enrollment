@@ -3,7 +3,7 @@
 @section('body-title', 'Academic Year Settings')
 
 @section('content')
-    <form action="{{ route('academic-year.update') }}" method="post">
+    <form action="{{ route('academic-year.store') }}" method="post">
         @csrf
         <div class="card shadow">
             <h5 class="card-header">
@@ -17,8 +17,8 @@
                                 <label class="form-control-plaintext">Year Start:</label>
                             </div>
                             <div class="col-auto">
-                                <input type="text" name="year_start" value="{{ $schedule->year_start }}"
-                                    class="form-control">
+                                <input type="number" name="year_start" value="{{ $schedule->year_start }}"
+                                    class="form-control" id="year_start" min="2018">
                             </div>
                         </div>
                     </div>
@@ -28,7 +28,8 @@
                                 <label class="form-control-plaintext">Year End:</label>
                             </div>
                             <div class="col-auto">
-                                <input type="text" name="year_end" value="{{ $schedule->year_end }}" class="form-control">
+                                <input type="number" name="year_end" value="{{ $schedule->year_end }}"
+                                    class="form-control" min="2019" id="year_end" readonly>
                             </div>
                         </div>
                     </div>
@@ -89,10 +90,19 @@
                     <div class="modal-body">Are you sure you want to proceed?</div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                        <input class="btn btn-primary" type="submit" name="submit" value="Confirm"/>
+                        <input class="btn btn-primary" type="submit" name="submit" value="Confirm" />
                     </div>
                 </div>
             </div>
         </div>
     </form>
+@endsection
+
+@section('custom-scripts')
+    <script>
+        $("#year_start").on("input", function() {
+            var val = parseInt($(this).val()) + 1;
+            $('#year_end').val(val);
+        });
+    </script>
 @endsection

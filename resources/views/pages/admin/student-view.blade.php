@@ -80,7 +80,23 @@
 
                             {{-- start courses enrolled tab --}}
                             <div class="tab-pane fade" id="nav-courses" role="tabpanel" tabindex="0">
+                                <div class="m-3">
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <td>#</td>
+                                                <td>Course Code</td>
+                                                <td>Course Name</td>
+                                                <td>Year</td>
+                                                <td>Term</td>
+                                                <td>Action</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
 
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                             {{-- end courses enrolled tab --}}
                         </div>
