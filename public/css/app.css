@@ -55,6 +55,10 @@ a:hover {
     color: var(--light-blue);
 }
 
+.text-gray {
+    color: #dddfeb;
+}
+
 .main.default .logo {
     height: 120px;
 }
@@ -385,7 +389,7 @@ body.admin {
 }
 
 .border-left-primary {
-    border-left: 0.25rem solid #4e73df !important;
+    border-left: 0.25rem solid var(--light-blue) !important;
 }
 
 /* -----------------------------------
