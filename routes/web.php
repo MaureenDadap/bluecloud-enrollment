@@ -6,6 +6,7 @@ use App\Http\Controllers\CorController;
 use App\Http\Controllers\CoursesController;
 use App\Http\Controllers\OnlineEnrollmentController;
 use App\Http\Controllers\PaypalController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProgramController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StudentController;
@@ -59,8 +60,9 @@ Route::get('/student/payment-ledger', function () {
 });
 
 
-
-Route::view('/student/profile', 'pages.student.profile');
+//Profile
+Route::get('student/profile', [ProfileController::class, 'index']);
+Route::post('student/profile/edit', [ProfileController::class, 'editProfile']);
 
 // ----------------- 
 //   Admin Routes

@@ -1,3 +1,154 @@
 @extends('layouts.student')
 @section('title', '- Profile')
 @section('body-title', 'My Profile')
+
+@section('content')
+    <form action="/student/profile/edit" method="post" enctype="multipart/form-data">
+        @csrf
+        <div class="card shadow">
+            <div class="card-body p-5">
+                <div class="row g-3">
+                    {{-- left pane start --}}
+                    <div class="col-xl-3 text-center">
+                        @php
+                            if ($student->image == null) {
+                                $image = '/img/user.png';
+                            } else {
+                                $image = '/uploads/' . $student->image;
+                            }
+                        @endphp
+                        <img src="{{ $image }}" alt="student image" class="large-profile mb-3">
+                        <input type="hidden" name="id" value="{{ $student->id }}">
+                        <a href="" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#popupModal"><i
+                                class="bi-pencil"></i> Edit Image</a>
+                        <hr>
+                        <h5>Student ID: {{ $student->student_id }}</h5>
+                    </div>
+                    {{-- right pane start --}}
+
+                    <div class="col-xl-9">
+                        {{-- start tab nav --}}
+                        <nav>
+                            <div class="nav nav-tabs pagination" id="nav-tab" role="tablist">
+                                <button class="nav-link active" id="nav-general-tab" data-bs-toggle="tab"
+                                    data-bs-target="#nav-general" type="button" role="tab" aria-selected="true">General
+                                    Information</button>
+                                <button class="nav-link" id="nav-courses-tab" data-bs-toggle="tab"
+                                    data-bs-target="#nav-courses" type="button" role="tab"
+                                    aria-selected="false">Courses Enrolled</button>
+                            </div>
+                        </nav>
+                        {{-- end tab nav --}}
+
+                        {{-- start tab content --}}
+                        <div class="tab-content" id="nav-tabContent">
+                            {{-- start general info tab --}}
+                            <div class="tab-pane fade show active" id="nav-general" role="tabpanel" tabindex="0">
+                                <div class="m-3">
+                                    <div class="row mb-3">
+                                        <div class="col-6">
+                                            <label class="form-label">Last Name</label>
+                                            <input type="text" name="last_name" value="{{ $student->last_name }}"
+                                                class="form-control" readonly>
+                                        </div>
+                                        <div class="col-6">
+                                            <label class="form-label">First Name</label>
+                                            <input type="text" name="first_name" value="{{ $student->first_name }}"
+                                                class="form-control" readonly>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col">
+                                            <label class="form-label">Birthdate</label>
+                                            <input type="text" name="birthdate" value="{{ $student->birthdate }}"
+                                                class="form-control" readonly>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-5">
+                                        <div class="col-6">
+                                            <label class="form-label">Program</label>
+                                            <input type="text" name="program" value="{{ $student->program }}"
+                                                class="form-control" readonly>
+                                        </div>
+                                        <div class="col-6">
+                                            <label class="form-label">Year</label>
+                                            <input type="text" name="year" value="{{ $student->year }}"
+                                                class="form-control" readonly>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            {{-- end general info tab --}}
+
+                            {{-- start courses enrolled tab --}}
+                            <div class="tab-pane fade" id="nav-courses" role="tabpanel" tabindex="0">
+                                <div class="m-3">
+                                    @if ($recordExists == 1)
+                                        <h5>Assessment ID: #{{ $assessment->assessment_id }}</h5>
+                                        <h6 class="mb-3">Total Units: {{ $assessment->total_units }}</h6>
+
+                                        <table class="table table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <td>#</td>
+                                                    <td>Course Code</td>
+                                                    <td>Course Name</td>
+                                                    <td>Schedule</td>
+                                                    <td>Instructor</td>
+                                                    <td>Units</td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @php
+                                                    $i = 0;
+                                                @endphp
+                                                @foreach ($courses as $course)
+                                                    <tr>
+                                                        <td>{{ ++$i }}</td>
+                                                        <td>{{ $course->code }}</td>
+                                                        <td>{{ $course->name }}</td>
+                                                        <td> {{ $course['days'] . ', ' . date('g:h a', strtotime($course['time_start'])) . ' - ' . date('g:h a', strtotime($course['time_end'])) }}
+                                                        </td>
+                                                        <td>{{ $course->instructor }}</td>
+                                                        <td>{{ $course->units }}</td>
+                                                    </tr>
+                                                @endforeach
+                                            </tbody>
+                                        </table>
+                                    @else
+                                        <p>Student has not enrolled any courses for the current Academic Schedule</p>
+                                    @endif
+                                </div>
+                            </div>
+                            {{-- end courses enrolled tab --}}
+                        </div>
+                        {{-- end tab content --}}
+                    </div>
+                </div>
+
+                @include('includes.alert')
+            </div>
+        </div>
+
+
+        {{-- popup modal --}}
+        <div class="modal fade" id="popupModal" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Upload new profile image</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <input type="file" name="image" class="form-control">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                        <input type="submit" class="btn btn-primary" name="submit" value ="Submit" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    @endsection
