@@ -15,14 +15,14 @@ return new class extends Migration
     {
         Schema::create('assessments', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('student_id');
-            $table->bigInteger('student_courses_id');
+            $table->string('student_id');
+            $table->string('assessment_id');
+            $table->string('academic_schedule_id');
             $table->integer('total_units');
             $table->decimal('unit_price');
             $table->decimal('total_unit_price');
             $table->decimal('misc_price');
             $table->decimal('total_price');
-            $table->boolean('enroll_status');
             $table->timestamps();
         });
     }
