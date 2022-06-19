@@ -22,7 +22,6 @@
                             <td>Student ID</td>
                             <td>Last Name</td>
                             <td>First Name</td>
-                            <td>Birthdate</td>
                             <td>Program</td>
                             <td>Year</td>
                             <td>Term Enrollment Status</td>
@@ -50,8 +49,8 @@
                         name: 'image'
                     },
                     {
-                        data: 'last_name',
-                        name: 'last_name'
+                        data: 'student_id',
+                        name: 'student_id'
                     },
                     {
                         data: 'last_name',
@@ -60,10 +59,6 @@
                     {
                         data: 'first_name',
                         name: 'first_name'
-                    },
-                    {
-                        data: 'birthdate',
-                        name: 'birthdate'
                     },
                     {
                         data: 'program',

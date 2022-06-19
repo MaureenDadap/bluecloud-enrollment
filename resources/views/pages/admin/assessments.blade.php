@@ -19,10 +19,10 @@
                         <tr>
                             <td>#</td>
                             <td>Assessment ID</td>
-                            {{-- <td>Student ID</td>
+                            <td>Student ID</td>
                             <td>Last Name</td>
                             <td>Academic Year</td>
-                            <td>Term</td> --}}
+                            <td>Term</td>
                             <td>Action</td>
                         </tr>
                     </thead>
@@ -47,22 +47,22 @@
                         data: 'assessment_id',
                         name: 'assessment_id'
                     },
-                    // {
-                    //     data: 'student_id',
-                    //     name: 'student_id'
-                    // },
-                    // {
-                    //     data: 'last_name',
-                    //     name: 'last_name'
-                    // },
-                    // {
-                    //     data: 'academic_year',
-                    //     name: 'academic_year'
-                    // },
-                    // {
-                    //     data: 'term',
-                    //     name: 'term'
-                    // },
+                    {
+                        data: 'student_id',
+                        name: 'student_id'
+                    },
+                    {
+                        data: 'last_name',
+                        name: 'last_name'
+                    },
+                    {
+                        data: 'academic_year',
+                        name: 'academic_year'
+                    },
+                    {
+                        data: 'term',
+                        name: 'term'
+                    },
                     {
                         data: 'action',
                         name: 'action',

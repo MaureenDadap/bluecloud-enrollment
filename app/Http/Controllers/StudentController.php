@@ -106,7 +106,8 @@ class StudentController extends Controller
     public function showAllStudents(Request $request)
     {
         if ($request->ajax()) {
-            $data = Student::all()->where('application_status', 1);
+            $data = Student::where('application_status', 1)->get();
+            $currentAY = AcademicSchedule::latest()->first()->id;
 
             foreach ($data as $e) {
                 if ($e->image == null)
@@ -114,10 +115,12 @@ class StudentController extends Controller
                 else
                     $e->image = '/uploads/' . $e->image;
 
-                if ($e->enrollment_status == 0)
-                    $e->enrollment_status = 'Not enrolled';
-                else
+                $assessment = Assessment::where('student_id', $e->id)->where('academic_schedule_id', $currentAY)->get();
+
+                if ($assessment != null && $assessment->count() > 0)
                     $e->enrollment_status = 'Enrolled';
+                else
+                    $e->enrollment_status = 'Not enrolled';
             }
 
             return DataTables::of($data)
@@ -172,8 +175,8 @@ class StudentController extends Controller
             //get course details from Courses table
             $courses = Courses::all()->whereIn('id', $course_ids);
         } else {
-           $recordExists = 0;
-           $courses = collect();
+            $recordExists = 0;
+            $courses = collect();
         }
 
 

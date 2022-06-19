@@ -95,7 +95,7 @@ Route::get('admin/course/delete/{id}', [CoursesController::class, 'destroy']);
 
 //manage assessments
 Route::get('admin/assessments', [AssessmentController::class, 'index']);
-Route::get('admin/assessments', [AssessmentController::class, 'index']);
+Route::get('admin/cor-request/{id}', [AssessmentController::class, 'show']);
 
 //manage academic schedule
 Route::get('admin/academic-schedule', [AcademicScheduleController::class, 'index']);
