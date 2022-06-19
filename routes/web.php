@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AcademicScheduleController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AssessmentController;
 use App\Http\Controllers\CorController;
 use App\Http\Controllers\CoursesController;
 use App\Http\Controllers\OnlineEnrollmentController;
@@ -55,11 +56,6 @@ Route::get('/student/clearance', function () {
     return view('pages.student.clearance');
 });
 
-Route::get('/student/payment-ledger', function () {
-    return view('pages.student.payment-ledger');
-});
-
-
 //Profile
 Route::get('student/profile', [ProfileController::class, 'index']);
 Route::post('student/profile/edit', [ProfileController::class, 'editProfile']);
@@ -96,6 +92,10 @@ Route::post('admin/course/created', [CoursesController::class, 'store']);
 Route::get('admin/course/edit/{id}', [CoursesController::class, 'edit']);
 Route::post('admin/course/update/{id}', [CoursesController::class, 'update']);
 Route::get('admin/course/delete/{id}', [CoursesController::class, 'destroy']);
+
+//manage assessments
+Route::get('admin/assessments', [AssessmentController::class, 'index']);
+Route::get('admin/assessments', [AssessmentController::class, 'index']);
 
 //manage academic schedule
 Route::get('admin/academic-schedule', [AcademicScheduleController::class, 'index']);

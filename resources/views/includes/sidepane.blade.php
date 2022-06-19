@@ -31,10 +31,6 @@
         </li>
         <hr>
         <li class="nav-item">
-            <a class="nav-link {{ request()->is('admin/transactions') ? 'active' : '' }}" href="/admin/transactions">
-                <span class="bi-cash"></span> Transactions</a>
-        </li>
-        <li class="nav-item">
             <a class="nav-link {{ request()->is('admin/assessments') ? 'active' : '' }}" href="/admin/assessments">
                 <span class="bi-file-text"></span> Assessments</a>
         </li>

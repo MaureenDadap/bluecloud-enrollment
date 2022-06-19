@@ -15,13 +15,13 @@
             </a>
         </div>
         <div class="col-md-6 col-lg-4">
-            <a href="/student/payment-ledger">
+            <a href="/student/profile">
                 <div class="card rounded p-4 ledger">
                     <div>
-                        <h4>Payment Ledger</h4>
-                        <p>View my payment transactions with Accounting's office</p>
+                        <h4>My Profile</h4>
+                        <p>View my account information, edit my profile picture, and see list of courses enrolled.</p>
                     </div>
-                    <i class="bi-cash"></i>
+                    <i class="bi-person-fill"></i>
                 </div>
             </a>
         </div>

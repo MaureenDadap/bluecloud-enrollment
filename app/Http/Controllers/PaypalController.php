@@ -6,6 +6,7 @@ use App\Models\AcademicSchedule;
 use App\Models\Assessment;
 use App\Models\Courses;
 use App\Models\StudentCourses;
+use App\Models\Transaction;
 use Illuminate\Http\Request;
 use Srmklive\PayPal\Services\PayPal;
 
@@ -120,6 +121,10 @@ class PaypalController extends Controller
                 'misc_price' => $misc_price,
                 'total_price' => $total_price
             ]);
+
+            // Transaction::create([
+            //     's'
+            // ]);
 
             return redirect()
                 ->route('createTransaction')

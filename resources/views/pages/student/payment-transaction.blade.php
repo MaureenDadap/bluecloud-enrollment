@@ -1,14 +1,16 @@
 @extends('layouts.student')
 @section('title', '- Transaction')
-@section('body-title', 'Transaction')
-
 @section('content')
-    @if (\Session::has('error'))
-        <div class="alert alert-danger">{{ \Session::get('error') }}</div>
-        {{ \Session::forget('error') }}
-    @endif
-    @if (\Session::has('success'))
-        <div class="alert alert-success">{{ \Session::get('success') }}</div>
-        {{ \Session::forget('success') }}
-    @endif
+    <div class="row justify-content-center">
+        <div class="col-lg-6">
+            <div class="card shadow">
+                <h5 class="card-header">Transaction</h5>
+                <div class="card-body">
+                    @include('includes.alert')
+                    <a href="/" class="btn btn-primary">Finish</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
 @endsection

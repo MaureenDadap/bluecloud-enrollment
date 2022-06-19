@@ -28,8 +28,6 @@
                         href="/student/cor">Certificate of Enrollment</a>
                     <a class="nav-link mx-2 {{ request()->is('student/clearance') ? 'active' : '' }}"
                         href="/student/clearance">Clearance</a>
-                    <a class="nav-link mx-2 {{ request()->is('student/payment-ledger') ? 'active' : '' }}"
-                        href="/student/payment-ledger">Payment Ledger</a>
                 </ul>
                 <!-- Nav Main menu END -->
 
