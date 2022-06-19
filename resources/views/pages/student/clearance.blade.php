@@ -41,11 +41,15 @@
                             </thead>
                             <tbody>
                                 @if ($notCleared == '1')
+                                    @php
+                                        $i = 0;
+                                    @endphp
                                     @foreach ($clearances as $row)
                                         <tr>
+                                            <td>{{++$i}}</td>
                                             <td>{{ $row->office }}</td>
                                             <td>{{ $row->remarks }}</td>
-                                            <td><span class="btn btn-warning">Pending</span></td>
+                                            <td><span class="btn btn-warning">Unresolved</span></td>
                                         </tr>
                                     @endforeach
                                 @else

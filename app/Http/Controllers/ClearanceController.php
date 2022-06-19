@@ -39,7 +39,7 @@ class ClearanceController extends Controller
                 ->addColumn('action', function ($row) {
                     $btn = '
                     <a class="btn btn-success deleteClearance" data-clearanceid="' . $row['id'] . '" href="#" data-bs-toggle="modal"
-                    data-bs-target="#confirmModal"><i class="bi-check-circle text-white" title="Resolve"></i></a>';
+                    data-bs-target="#confirmModal"><i class="bi-check-circle text-white" title="Resolve"></i> Resolve</a>';
 
                     return $btn;
                 })
@@ -52,7 +52,7 @@ class ClearanceController extends Controller
     public function studentIndex()
     {
         $student = Student::find(session('studentID'));
-        $clearances = Clearance::where('student_id', $student->id);
+        $clearances = Clearance::where('student_id', $student->id)->get();
         $notCleared = 0;
 
         if ($clearances != null && $clearances->count() > 0)
