@@ -127,10 +127,14 @@ class StudentController extends Controller
                 ->addIndexColumn()
                 ->addColumn('action', function ($row) {
                     $viewRoute = '/admin/students/view/' . $row['id'] . '';
-                    $deleteRoute = '/admin/students/delete/ ' . $row['id'] . '';
+                    // $deleteRoute = '/admin/students/delete/ ' . $row['id'] . '';
 
                     $btn = '<a class="btn btn-info" href="' . $viewRoute . '"><i class="bi-eye text-white"></i></a>
-                    <a class="btn btn-danger" href="' . $deleteRoute . '"><i class="bi-trash"></i></a>';
+                    <button class="btn btn-danger deleteStudent" data-studentid="' . $row['id'] . '" href="#" data-bs-toggle="modal"
+                    data-bs-target="#confirmModal" ><i class="bi-trash"></i></button>';
+
+                    // $btn = '<a class="btn btn-info" href="' . $viewRoute . '"><i class="bi-eye text-white"></i></a>
+                    // <a class="btn btn-danger" href="' . $deleteRoute . '"><i class="bi-trash"></i></a>';
 
                     return $btn;
                 })

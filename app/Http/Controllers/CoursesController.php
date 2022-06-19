@@ -26,10 +26,10 @@ class CoursesController extends Controller
                 })
                 ->addColumn('action', function ($row) {
                     $editRoute = '/admin/course/edit/' . $row['id'] . '';
-                    $deleteRoute = '/admin/course/delete/ ' . $row['id'] . '';
 
                     $btn = '<a class="btn btn-info" href="' . $editRoute . '"><i class="bi-pencil text-white"></i></a>
-                    <a class="btn btn-danger" href="' . $deleteRoute . '"><i class="bi-trash"></i></a>';
+                    <button class="btn btn-danger deleteCourse" data-courseid="' . $row['id'] . '" href="#" data-bs-toggle="modal"
+                    data-bs-target="#confirmModal" ><i class="bi-trash"></i></button>';
 
                     return $btn;
                 })

@@ -22,10 +22,10 @@ class ProgramController extends Controller
                 ->addIndexColumn()
                 ->addColumn('action', function ($row) {
                     $editRoute = '/admin/programs/edit/' . $row['id'] . '';
-                    $deleteRoute = '/admin/programs/delete/ ' . $row['id'] . '';
 
                     $btn = '<a class="btn btn-info" href="' . $editRoute . '"><i class="bi-pencil text-white"></i></a>
-                    <a class="btn btn-danger" href="' . $deleteRoute . '"><i class="bi-trash"></i></a>';
+                    <button class="btn btn-danger deleteProgram" data-programid="' . $row['id'] . '" href="#" data-bs-toggle="modal"
+                    data-bs-target="#confirmModal" ><i class="bi-trash"></i></button>';
 
                     return $btn;
                 })
