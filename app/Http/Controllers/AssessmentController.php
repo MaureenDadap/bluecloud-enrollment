@@ -9,9 +9,7 @@ use App\Models\Student;
 use App\Models\StudentCourses;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Yajra\DataTables\Facades\DataTables;
-use Yajra\DataTables\QueryDataTable;
 
 class AssessmentController extends Controller
 {

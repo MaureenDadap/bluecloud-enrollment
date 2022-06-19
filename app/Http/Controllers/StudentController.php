@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\AcademicSchedule;
 use App\Models\Assessment;
+use App\Models\Clearance;
 use App\Models\Courses;
 use App\Models\Program;
 use App\Models\Student;
@@ -127,14 +128,12 @@ class StudentController extends Controller
                 ->addIndexColumn()
                 ->addColumn('action', function ($row) {
                     $viewRoute = '/admin/students/view/' . $row['id'] . '';
-                    // $deleteRoute = '/admin/students/delete/ ' . $row['id'] . '';
+                    $clearanceRoute = '/admin/clearance/new/' . $row['id'] . '';
 
                     $btn = '<a class="btn btn-info" href="' . $viewRoute . '"><i class="bi-eye text-white"></i></a>
+                    <a class="btn btn-warning" href="' . $clearanceRoute . '" title="Create Clearance Accountability"><i class="bi-clipboard-x"></i></a>
                     <button class="btn btn-danger deleteStudent" data-studentid="' . $row['id'] . '" href="#" data-bs-toggle="modal"
                     data-bs-target="#confirmModal" ><i class="bi-trash"></i></button>';
-
-                    // $btn = '<a class="btn btn-info" href="' . $viewRoute . '"><i class="bi-eye text-white"></i></a>
-                    // <a class="btn btn-danger" href="' . $deleteRoute . '"><i class="bi-trash"></i></a>';
 
                     return $btn;
                 })
@@ -183,8 +182,15 @@ class StudentController extends Controller
             $courses = collect();
         }
 
+        $clearances = Clearance::where('student_id', $student->id);
+        $notCleared = 0;
 
-        return view('pages.admin.student-view', compact('student', 'assessment', 'courses', 'recordExists'));
+        if ($clearances != null && $clearances->count() > 0)
+            $notCleared = 1;
+
+
+
+        return view('pages.admin.student-view', compact('student', 'assessment', 'courses', 'recordExists', 'notCleared'));
     }
 
     /**

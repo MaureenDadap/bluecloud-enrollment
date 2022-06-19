@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\AcademicSchedule;
 use App\Models\Assessment;
+use App\Models\Clearance;
 use App\Models\Courses;
 use App\Models\Student;
 use App\Models\StudentCourses;
@@ -29,7 +30,14 @@ class OnlineEnrollmentController extends Controller
         else
             $isEnrolled = 0;
 
-        return view('pages.student.online-enrollment', compact('student', 'schoolSched', 'courses', 'isEnrolled'));
+        $clearances = Clearance::where('student_id', $student->id);
+        $notCleared = 0;
+
+        if ($clearances != null && $clearances->count() > 0)
+            $notCleared = 1;
+
+
+        return view('pages.student.online-enrollment', compact('student', 'schoolSched', 'courses', 'isEnrolled', 'notCleared'));
     }
 
     public function registerCourses(Request $request)

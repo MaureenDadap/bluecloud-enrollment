@@ -1,6 +1,6 @@
 @extends('layouts.admin')
-@section('title', '- Manage New Enrollees')
-@section('body-title', 'New Enrollees')
+@section('title', '- Manage New Applicants')
+@section('body-title', 'New Applicants')
 @section('datatables-cdn')
     <link href="{{ asset('css/datatables.css') }}" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js"></script>

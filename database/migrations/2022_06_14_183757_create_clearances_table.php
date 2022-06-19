@@ -15,6 +15,9 @@ return new class extends Migration
     {
         Schema::create('clearances', function (Blueprint $table) {
             $table->id();
+            $table->string('student_id');
+            $table->string('office');
+            $table->string('remarks');
             $table->timestamps();
         });
     }

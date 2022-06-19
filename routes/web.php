@@ -3,6 +3,7 @@
 use App\Http\Controllers\AcademicScheduleController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AssessmentController;
+use App\Http\Controllers\ClearanceController;
 use App\Http\Controllers\CorController;
 use App\Http\Controllers\CoursesController;
 use App\Http\Controllers\OnlineEnrollmentController;
@@ -51,10 +52,8 @@ Route::get('enrollment/payment', [OnlineEnrollmentController::class, 'paymentVie
 Route::get('student/cor', [CorController::class, 'index']);
 Route::post('student/cor-request', [CorController::class, 'request'])->name('cor.request');
 
-
-Route::get('/student/clearance', function () {
-    return view('pages.student.clearance');
-});
+//cleaarance
+Route::get('student/clearance', [ClearanceController::class, 'studentIndex']);
 
 //Profile
 Route::get('student/profile', [ProfileController::class, 'index']);
@@ -101,6 +100,16 @@ Route::get('admin/cor-request/{id}', [AssessmentController::class, 'show']);
 Route::get('admin/academic-schedule', [AcademicScheduleController::class, 'index']);
 Route::post('admin/academic-schedule-edit', [AcademicScheduleController::class, 'store'])->name('academic-year.store');
 // Route::post('admin/academic-schedule-edit', [AcademicScheduleController::class, 'update'])->name('academic-year.update');
+
+//Manage clearances
+Route::get('admin/clearances', [ClearanceController::class, 'index']);
+Route::get('admin/clearance/new/{id}', [ClearanceController::class, 'create']);
+Route::post('admin/clearance/created', [ClearanceController::class, 'store']);
+Route::get('admin/clearance/edit/{id}', [ClearanceController::class, 'edit']);
+Route::post('admin/clearance/update/{id}', [ClearanceController::class, 'update']);
+Route::get('admin/clearance/delete/{id}', [ClearanceController::class, 'destroy']);
+
+
 
 // ----------------- 
 //   Payment Routes

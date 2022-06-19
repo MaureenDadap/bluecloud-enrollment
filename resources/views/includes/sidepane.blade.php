@@ -14,7 +14,7 @@
         <hr>
         <li class="nav-item">
             <a class="nav-link {{ request()->is('admin/new-enrollees') ? 'active' : '' }}" href="/admin/new-enrollees">
-                <span class="bi-person-bounding-box"></span> New Enrollees</a>
+                <span class="bi-person-bounding-box"></span> New Applicants</a>
         </li>
         <li class="nav-item">
             <a class="nav-link {{ request()->is('admin/students') ? 'active' : '' }}" href="/admin/students">
