@@ -81,21 +81,41 @@
                             {{-- start courses enrolled tab --}}
                             <div class="tab-pane fade" id="nav-courses" role="tabpanel" tabindex="0">
                                 <div class="m-3">
-                                    <table class="table table-bordered">
-                                        <thead>
-                                            <tr>
-                                                <td>#</td>
-                                                <td>Course Code</td>
-                                                <td>Course Name</td>
-                                                <td>Year</td>
-                                                <td>Term</td>
-                                                <td>Action</td>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
+                                    @if ($recordExists == 1)
+                                        <h5>Assessment ID: #{{ $assessment->assessment_id }}</h5>
+                                        <h6 class="mb-3">Total Units: {{ $assessment->total_units }}</h6>
 
-                                        </tbody>
-                                    </table>
+                                        <table class="table table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <td>#</td>
+                                                    <td>Course Code</td>
+                                                    <td>Course Name</td>
+                                                    <td>Schedule</td>
+                                                    <td>Instructor</td>
+                                                    <td>Units</td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @php
+                                                    $i = 0;
+                                                @endphp
+                                                @foreach ($courses as $course)
+                                                    <tr>
+                                                        <td>{{ ++$i }}</td>
+                                                        <td>{{ $course->code }}</td>
+                                                        <td>{{ $course->name }}</td>
+                                                        <td> {{ $course['days'] . ', ' . date('g:h a', strtotime($course['time_start'])) . ' - ' . date('g:h a', strtotime($course['time_end'])) }}
+                                                        </td>
+                                                        <td>{{ $course->instructor }}</td>
+                                                        <td>{{ $course->units }}</td>
+                                                    </tr>
+                                                @endforeach
+                                            </tbody>
+                                        </table>
+                                    @else
+                                        <p>Student has not enrolled any courses for the current Academic Schedule</p>
+                                    @endif
                                 </div>
                             </div>
                             {{-- end courses enrolled tab --}}

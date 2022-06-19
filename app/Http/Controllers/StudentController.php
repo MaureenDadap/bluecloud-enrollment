@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AcademicSchedule;
+use App\Models\Assessment;
+use App\Models\Courses;
 use App\Models\Program;
 use App\Models\Student;
+use App\Models\StudentCourses;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -152,7 +156,28 @@ class StudentController extends Controller
     public function showForAdmin($id)
     {
         $student = Student::find($id);
-        return view('pages.admin.student-view', compact('student'));
+        $currentAY = AcademicSchedule::latest()->first()->id;
+        $assessment = Assessment::where('student_id', $student->id)->where('academic_schedule_id', $currentAY)->latest()->first();
+
+        $recordExists = 0;
+        if ($assessment != null) {
+            $recordExists = 1;
+            $student_courses = StudentCourses::all()->where('assessment_id', $assessment->assessment_id);
+
+            $course_ids = array();
+            foreach ($student_courses as $course) {
+                array_push($course_ids, $course->course_id);
+            }
+
+            //get course details from Courses table
+            $courses = Courses::all()->whereIn('id', $course_ids);
+        } else {
+           $recordExists = 0;
+           $courses = collect();
+        }
+
+
+        return view('pages.admin.student-view', compact('student', 'assessment', 'courses', 'recordExists'));
     }
 
     /**

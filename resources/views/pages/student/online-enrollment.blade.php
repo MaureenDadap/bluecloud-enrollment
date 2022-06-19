@@ -57,7 +57,6 @@
                                         </tr>
                                     @endforeach
                                 @else
-                                    ($courses->empty())
                                     <tr class="text-center">
                                         <td colspan="7">No Courses Available</td>
                                     </tr>
