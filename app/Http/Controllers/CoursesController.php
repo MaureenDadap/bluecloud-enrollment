@@ -68,7 +68,6 @@ class CoursesController extends Controller
             'days' => 'required',
             'time_start' => 'required',
             'time_end' => 'required',
-            'slots' => 'integer|min:0',
             'units' => 'integer|min:1',
         ]);
 
@@ -82,7 +81,6 @@ class CoursesController extends Controller
             'days' => implode(' ', (array) $request['days']),
             'time_start' => $request->get('time_start'),
             'time_end' => $request->get('time_end'),
-            'slots' => $request->get('slots'),
             'units' => $request->get('units'),
         ]);
 
@@ -133,7 +131,6 @@ class CoursesController extends Controller
             'days' => 'required',
             'time_start' => 'required',
             'time_end' => 'required',
-            'slots' => 'integer|min:0',
             'units' => 'integer|min:1',
         ]);
 
@@ -150,7 +147,6 @@ class CoursesController extends Controller
                 $course->days = implode(' ', (array) $request['days']);
                 $course->time_start = $request->get('time_start');
                 $course->time_end = $request->get('time_end');
-                $course->slots = $request->get('slots');
                 $course->units = $request->get('units');
 
 
@@ -169,7 +165,6 @@ class CoursesController extends Controller
             $course->days = implode(' ', (array) $request['days']);
             $course->time_start = $request->get('time_start');
             $course->time_end = $request->get('time_end');
-            $course->slots = $request->get('slots');
             $course->units = $request->get('units');
 
 

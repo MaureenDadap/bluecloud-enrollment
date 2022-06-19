@@ -37,30 +37,30 @@
                                     <td>Course Name</td>
                                     <td>Schedule</td>
                                     <td>Instructor</td>
-                                    <td>Slots Available</td>
                                     <td>Units</td>
                                 </tr>
                             </thead>
                             <tbody>
-                                @if ($courses->empty())
-                                    <tr class="text-center">
-                                        <td colspan="7">No Courses Available</td>
-                                    </tr>
-                                @else
+                                @if ($courses->isNotEmpty())
                                     @foreach ($courses as $course)
                                         <tr>
                                             <td><input type="checkbox" name="course_ids[]" value="{{ $course->id }}"></td>
-                                            <td><input type="checkbox" name="student_id" value="{{ $student->id }}">
-                                            </td>
+                                            {{-- <input type="hidden" name="course_names[]" value="{{ $course->name }}"> --}}
+                                            <input type="hidden" name="student_id" value="{{ $student->id }}">
+
                                             <td>{{ $course->code }}</td>
                                             <td>{{ $course->name }}</td>
                                             <td> {{ $course['days'] . ', ' . date('g:h a', strtotime($course['time_start'])) . ' - ' . date('g:h a', strtotime($course['time_end'])) }}
                                             </td>
                                             <td>{{ $course->instructor }}</td>
-                                            <td>{{ $course->slots }}</td>
                                             <td>{{ $course->units }}</td>
                                         </tr>
                                     @endforeach
+                                @else
+                                    ($courses->empty())
+                                    <tr class="text-center">
+                                        <td colspan="7">No Courses Available</td>
+                                    </tr>
                                 @endif
                             </tbody>
                         </table>
@@ -83,7 +83,7 @@
             </div>
 
 
-            <a href="{{ route('enrollment.payment') }}" class="btn btn-success mt-5">Pay Fees</a>
+            {{-- <a href="{{ route('enrollment.payment') }}" class="btn btn-success mt-5">Pay Fees</a> --}}
         </div>
     </div>
 

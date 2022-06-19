@@ -10,6 +10,8 @@
                 <div class="card shadow">
                     <h5 class="card-header">Courses to Register</h5>
                     <div class="card-body">
+                        <h5 class="mb-3">Assessment ID: #{{ $assessment_id }}</h5>
+                        <hr>
                         <table class="table table-bordered table-responsive">
                             <thead>
                                 <tr>
@@ -18,7 +20,6 @@
                                     <td>Course Name</td>
                                     <td>Schedule</td>
                                     <td>Instructor</td>
-                                    <td>Slots Available</td>
                                     <td>Units</td>
                                 </tr>
                             </thead>
@@ -34,7 +35,6 @@
                                         <td> {{ $course['days'] . ', ' . date('g:h a', strtotime($course['time_start'])) . ' - ' . date('g:h a', strtotime($course['time_end'])) }}
                                         </td>
                                         <td>{{ $course->instructor }}</td>
-                                        <td>{{ $course->slots }}</td>
                                         <td>{{ $course->units }}</td>
                                     </tr>
                                 @endforeach

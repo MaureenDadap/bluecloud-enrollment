@@ -315,7 +315,7 @@ body.admin {
 }
 
 .admin .sidebar {
-    min-width: 270px;
+    min-width: 250px;
     background-color: var(--v-dark-blue);
     color: #fff;
 }

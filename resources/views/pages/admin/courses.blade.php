@@ -29,7 +29,7 @@
                             <td>Term</td>
                             <td>Schedule</td>
                             <td>Instructor</td>
-                            <td>Slots</td>
+
                             <td>Units</td>
                             <td>Action</td>
                         </tr>
@@ -78,10 +78,6 @@
                     {
                         data: 'instructor',
                         name: 'instructor'
-                    },
-                    {
-                        data: 'slots',
-                        name: 'slots'
                     },
                     {
                         data: 'units',

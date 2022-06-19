@@ -106,10 +106,6 @@
 
                         <div class="row g-3 align-items-center mb-4">
                             <div class="col">
-                                <label class="form-label"><strong>Slots:</strong></label>
-                                <input type="number" name="slots" class="form-control" min="0">
-                            </div>
-                            <div class="col">
                                 <label class="form-label"><strong>Units:</strong></label>
                                 <input type="number" name="units" class="form-control" min="1">
                             </div>

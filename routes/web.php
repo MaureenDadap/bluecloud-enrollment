@@ -42,7 +42,7 @@ Route::get('student/dashboard', [StudentController::class, 'index']);
 //online enrollment
 Route::get('student/online-enrollment', [OnlineEnrollmentController::class, 'index']);
 Route::post('enrollment/register', [OnlineEnrollmentController::class, 'registerCourses'])->name('enrollment.register');
-Route::post('enrollment/payment', [OnlineEnrollmentController::class, 'paymentView'])->name('enrollment.payment');
+Route::get('enrollment/payment', [OnlineEnrollmentController::class, 'paymentView'])->name('enrollment.payment');
 
 //COR 
 Route::get('/student/cor', function () {
@@ -55,10 +55,6 @@ Route::get('/student/clearance', function () {
 
 Route::get('/student/payment-ledger', function () {
     return view('pages.student.payment-ledger');
-});
-
-Route::get('/student/payment', function () {
-    return view('pages.student.payment');
 });
 
 

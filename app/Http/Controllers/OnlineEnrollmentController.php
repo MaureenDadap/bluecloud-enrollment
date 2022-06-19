@@ -46,29 +46,25 @@ class OnlineEnrollmentController extends Controller
             ]);
         }
 
-        return redirect('/student/online-enrollment')->with('success', 'Courses successfully registered');
+        return redirect('/enrollment/payment');
     }
 
     public function paymentView(Request $request)
     {
-        $request->validate([
-            'course_ids' => 'required',
-        ]);
+        $student_id = session()->get('studentID');
 
-        $course_ids = $request->get('course_ids');
-        $student_id = $request->get('student_id');
-        $assessment_id = substr(str_shuffle('0123456789'), 1, 11);
+        //get the latest assessment id of courses saved with student_id 
+        $assessment_id = StudentCourses::where('student_id', $student_id)->latest()->first()->assessment_id;
 
-        $courses = Courses::all()->whereIn('id', $course_ids);
-
-        foreach ($courses as $course) {
-            StudentCourses::create([
-                'student_id' => $student_id,
-                'assessment_id' => $assessment_id,
-                'course_id' => $course->id,
-                'course_name' => $course->name,
-            ]);
+        //get all the courses registered with this assessment id
+        $student_courses = StudentCourses::all()->where('assessment_id', $assessment_id);
+        $course_ids = array();
+        foreach ($student_courses as $course) {
+            array_push($course_ids, $course->course_id);
         }
+
+        //get course details from Courses table
+        $courses = Courses::all()->whereIn('id', $course_ids);
 
         $total_units = 0;
 
@@ -81,6 +77,6 @@ class OnlineEnrollmentController extends Controller
         $total_unit_price = $unit_price * $total_units;
         $total_price = $total_unit_price + $misc_price;
 
-        return view('pages.student.payment', compact('courses', 'total_units', 'unit_price', 'total_unit_price', 'misc_price', 'total_price'));
+        return view('pages.student.payment', compact('courses', 'total_units', 'unit_price', 'total_unit_price', 'misc_price', 'total_price', 'assessment_id'));
     }
 }
