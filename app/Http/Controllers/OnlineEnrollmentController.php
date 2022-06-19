@@ -22,7 +22,14 @@ class OnlineEnrollmentController extends Controller
             ->where('year', $student->year)
             ->where('term', $schoolSched->term);
 
-        return view('pages.student.online-enrollment', compact('student', 'schoolSched', 'courses'));
+        $currentAY = AcademicSchedule::latest()->first()->id;
+        $assessment = Assessment::where('student_id', $student->id)->where('academic_schedule_id', $currentAY)->latest()->first();
+        if ($assessment != null)
+            $isEnrolled = 1;
+        else
+            $isEnrolled = 0;
+
+        return view('pages.student.online-enrollment', compact('student', 'schoolSched', 'courses', 'isEnrolled'));
     }
 
     public function registerCourses(Request $request)

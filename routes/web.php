@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AcademicScheduleController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\CorController;
 use App\Http\Controllers\CoursesController;
 use App\Http\Controllers\OnlineEnrollmentController;
 use App\Http\Controllers\PaypalController;
@@ -45,9 +46,9 @@ Route::post('enrollment/register', [OnlineEnrollmentController::class, 'register
 Route::get('enrollment/payment', [OnlineEnrollmentController::class, 'paymentView'])->name('enrollment.payment');
 
 //COR 
-Route::get('/student/cor', function () {
-    return view('pages.student.cor');
-});
+Route::get('student/cor', [CorController::class, 'index']);
+Route::post('student/cor-request', [CorController::class, 'request'])->name('cor.request');
+
 
 Route::get('/student/clearance', function () {
     return view('pages.student.clearance');

@@ -27,56 +27,68 @@
                     Course Registration
                 </h5>
                 <div class="card-body">
-                    <form action="{{ route('enrollment.register') }}" method="POST">
-                        @csrf
-                        <table class="table table-bordered">
-                            <thead>
-                                <tr>
-                                    <td>#</td>
-                                    <td>Course Code</td>
-                                    <td>Course Name</td>
-                                    <td>Schedule</td>
-                                    <td>Instructor</td>
-                                    <td>Units</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @if ($courses->isNotEmpty())
-                                    @foreach ($courses as $course)
+                    @if ($isEnrolled == 0)
+                        @if ($student->application_status == 1)
+                            <form action="{{ route('enrollment.register') }}" method="POST">
+                                @csrf
+                                <table class="table table-bordered">
+                                    <thead>
                                         <tr>
-                                            <td><input type="checkbox" name="course_ids[]" value="{{ $course->id }}"></td>
-                                            {{-- <input type="hidden" name="course_names[]" value="{{ $course->name }}"> --}}
-                                            <input type="hidden" name="student_id" value="{{ $student->id }}">
-
-                                            <td>{{ $course->code }}</td>
-                                            <td>{{ $course->name }}</td>
-                                            <td> {{ $course['days'] . ', ' . date('g:h a', strtotime($course['time_start'])) . ' - ' . date('g:h a', strtotime($course['time_end'])) }}
-                                            </td>
-                                            <td>{{ $course->instructor }}</td>
-                                            <td>{{ $course->units }}</td>
+                                            <td>#</td>
+                                            <td>Course Code</td>
+                                            <td>Course Name</td>
+                                            <td>Schedule</td>
+                                            <td>Instructor</td>
+                                            <td>Units</td>
                                         </tr>
-                                    @endforeach
-                                @else
-                                    <tr class="text-center">
-                                        <td colspan="7">No Courses Available</td>
-                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                        @if ($courses->isNotEmpty())
+                                            @foreach ($courses as $course)
+                                                <tr>
+                                                    <td><input type="checkbox" name="course_ids[]"
+                                                            value="{{ $course->id }}">
+                                                    </td>
+                                                    {{-- <input type="hidden" name="course_names[]" value="{{ $course->name }}"> --}}
+                                                    <input type="hidden" name="student_id" value="{{ $student->id }}">
+
+                                                    <td>{{ $course->code }}</td>
+                                                    <td>{{ $course->name }}</td>
+                                                    <td> {{ $course['days'] . ', ' . date('g:h a', strtotime($course['time_start'])) . ' - ' . date('g:h a', strtotime($course['time_end'])) }}
+                                                    </td>
+                                                    <td>{{ $course->instructor }}</td>
+                                                    <td>{{ $course->units }}</td>
+                                                </tr>
+                                            @endforeach
+                                        @else
+                                            <tr class="text-center">
+                                                <td colspan="7">No Courses Available</td>
+                                            </tr>
+                                        @endif
+                                    </tbody>
+                                </table>
+                                @if ($courses->isNotEmpty())
+                                    <hr>
+                                    <input type="submit" name="submit" class="btn btn-primary" value="Register">
                                 @endif
-                            </tbody>
-                        </table>
-                        @if ($courses->isNotEmpty())
-                            <hr>
-                            <input type="submit" name="submit" class="btn btn-primary" value="Register">
+                            </form>
+                            @if ($errors->any())
+                                <div class="alert alert-danger mt-3 fade show d-flex justify-content-between">
+                                    <ul class="mb-0">
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                        aria-label="Close"></button>
+                                </div>
+                            @endif
+                        @else
+                            <p class="text-center">Your admission application has not been approved yet. Application must be
+                                accepted by school first before enrolling for courses.</p>
                         @endif
-                    </form>
-                    @if ($errors->any())
-                        <div class="alert alert-danger mt-3 fade show d-flex justify-content-between">
-                            <ul class="mb-0">
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                        </div>
+                    @else
+                        <p class="text-center">You are currently enrolled for current academic schedule</p>
                     @endif
                 </div>
             </div>
