@@ -9,7 +9,9 @@ use App\Models\Student;
 use App\Models\StudentCourses;
 use Barryvdh\DomPDF\Facade\Pdf as PDF;
 use Illuminate\Http\Request;
-use Illuminate\View\View;
+use Illuminate\Support\Facades\Auth;
+
+
 
 class CorController extends Controller
 {

@@ -14,10 +14,24 @@ use Illuminate\Support\Facades\Session;
 
 class UserController extends Controller
 {
+    public function home()
+    {
+        if (Auth::check()) {
+            $userType = Auth::user()->account_type;
+            if ($userType == "student")
+                return redirect('student');
+            else if ($userType == "admin")
+                return redirect('admin');
+        }
+
+        return redirect('login');
+    }
+
     public function index()
     {
         return view('pages.auth.login');
     }
+
 
     public function login()
     {
@@ -114,19 +128,6 @@ class UserController extends Controller
             "program" => $data["program"],
             "year" => $data["year"],
         ]);
-    }
-
-    public function home()
-    {
-        if (Auth::check()) {
-            $userType = Auth::user()->account_type;
-            if ($userType == "student")
-                return redirect('student');
-            else if ($userType == "admin")
-                return redirect('admin');
-        }
-
-        return redirect("login");
     }
 
     public function signOut(Request $request)

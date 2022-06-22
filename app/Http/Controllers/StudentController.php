@@ -13,6 +13,9 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Yajra\DataTables\Facades\DataTables;
+use Illuminate\Auth\Middleware\Authenticate;
+
+
 
 class StudentController extends Controller
 {
@@ -228,7 +231,7 @@ class StudentController extends Controller
             $imageName = time() . '.' .  $request->image->extension();
             $request->image->move(public_path('uploads'), $imageName);
         } else {
-            $imageName = null;
+            $imageName = $request->old_image;
         }
 
         $student = Student::find($id);

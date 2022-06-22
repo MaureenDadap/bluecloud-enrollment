@@ -9,6 +9,10 @@ use App\Models\StudentCourses;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
 use Srmklive\PayPal\Services\PayPal;
+use Illuminate\Auth\Middleware\Authenticate;
+use Illuminate\Support\Facades\Auth;
+
+
 
 class PaypalController extends Controller
 {

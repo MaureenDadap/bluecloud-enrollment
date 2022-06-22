@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\AcademicSchedule;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
 
 class AcademicScheduleController extends Controller
 {

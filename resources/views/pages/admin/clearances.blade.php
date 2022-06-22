@@ -35,13 +35,13 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Confirm deletion</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Resolve confirmation</h5>
                     <a type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></a>
                 </div>
-                <div class="modal-body">Are you sure you want to delete?</div>
+                <div class="modal-body">Are you sure you want to resolve accountability?</div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                    <button class="btn btn-danger" id="deleteBtn" href="#">Delete</button>
+                    <button class="btn btn-success" id="deleteBtn" href="#">Resolve</button>
                 </div>
             </div>
         </div>

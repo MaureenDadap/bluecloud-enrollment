@@ -9,6 +9,10 @@ use App\Models\Student;
 use App\Models\StudentCourses;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Auth\Middleware\Authenticate;
+use Illuminate\Support\Facades\Auth;
+
+
 
 class ProfileController extends Controller
 {
@@ -57,6 +61,8 @@ class ProfileController extends Controller
 
         $student->image = $imageName;
         $user->image = $imageName;
+        $request->session()->put('userImage', $imageName);
+
 
 
         $student->update();

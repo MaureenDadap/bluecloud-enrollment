@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Program;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
+use Illuminate\Auth\Middleware\Authenticate;
+use Illuminate\Support\Facades\Auth;
+
 
 class ProgramController extends Controller
 {

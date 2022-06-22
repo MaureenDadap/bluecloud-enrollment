@@ -19,6 +19,7 @@
                         @endphp
                         <img src="{{ $image }}" alt="student image" class="large-profile mb-4">
                         <input type="file" name="image" class="form-control">
+                        <input type="hidden" name="old_image" value="{{ $student->image }}">
                         <hr>
                         <h5>Student ID: {{ $student->student_id }}</h5>
                     </div>
@@ -51,9 +52,9 @@
                                     <label class="form-label">Program</label>
                                     <select name="program" class="form-select form-control">
                                         @foreach ($programs as $program)
-                                            <option value="{{ $program->name }}"
-                                                {{ $student->program == $program->name ? 'selected' : '' }}>
-                                                {{ $program->name }}
+                                            <option value="{{ $program->code }}"
+                                                {{ $student->program == $program->code ? 'selected' : '' }}>
+                                                {{ $program->code . ' - ' . $program->name }}
                                             </option>
                                         @endforeach
                                     </select>
@@ -62,9 +63,9 @@
                                     <label class="form-label">Year</label>
                                     <select name="year" class="form-select form-control">
                                         <option value="1" {{ $student->year == '1' ? 'selected' : '' }}>1</option>
-                                        <option value="2" {{ $student->year == '1' ? 'selected' : '' }}>2</option>
-                                        <option value="2" {{ $student->year == '1' ? 'selected' : '' }}>3</option>
-                                        <option value="2" {{ $student->year == '1' ? 'selected' : '' }}>4</option>
+                                        <option value="2" {{ $student->year == '2' ? 'selected' : '' }}>2</option>
+                                        <option value="3" {{ $student->year == '3' ? 'selected' : '' }}>3</option>
+                                        <option value="4" {{ $student->year == '4' ? 'selected' : '' }}>4</option>
                                     </select>
                                 </div>
                             </div>

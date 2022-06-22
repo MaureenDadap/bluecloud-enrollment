@@ -20,8 +20,8 @@ class CreateAdminUserSeeder extends Seeder
             'username' => 'admin',
             'password' => 'admin',
             'account_type' => 'admin',
-            'created_at' => date('Y:mm:dd'),
-            'updated_at' => date('Y:mm:dd'),
+            'created_at' => date('Y:m:d'),
+            'updated_at' => date('Y:m:d'),
         ]);
     }
 }

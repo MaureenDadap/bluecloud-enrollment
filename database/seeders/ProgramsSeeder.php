@@ -19,8 +19,8 @@ class ProgramsSeeder extends Seeder
         DB::table('programs')->insert([
             'code' => 'BSCS',
             'name' => 'BS Computer Science',
-            'created_at' => date('Y:mm:dd'),
-            'updated_at' => date('Y:mm:dd'),
+            'created_at' => date('Y:m:d'),
+            'updated_at' => date('Y:m:d'),
         ]);
     }
 }

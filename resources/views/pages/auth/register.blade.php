@@ -19,7 +19,7 @@
                                 <div class="row g-0">
                                     <div class="col-lg-6">
                                         <div class="p-5">
-                                            <h3 class="mb-5 text-primary">Basic Infomation</h3>
+                                            <h3 class="mb-5 text-primary">Basic Information</h3>
 
                                             <div class="row">
                                                 <div class="col-md-6 mb-4 pb-2">
@@ -105,8 +105,8 @@
                                                 <select name="year" class="form-select form-control-lg">
                                                     <option value="1" selected>1</option>
                                                     <option value="2">2</option>
-                                                    <option value="2">3</option>
-                                                    <option value="2">4</option>
+                                                    <option value="3">3</option>
+                                                    <option value="4">4</option>
                                                 </select>
                                             </div>
 

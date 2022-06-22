@@ -10,6 +10,9 @@ use App\Models\StudentCourses;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
+use Illuminate\Support\Facades\Auth;
+
+
 
 class AssessmentController extends Controller
 {
@@ -22,7 +25,7 @@ class AssessmentController extends Controller
     {
         if ($request->ajax()) {
             $data = Assessment::select(
-                'assessments.id',
+                'assessments.id as id',
                 'students.student_id as student_id',
                 'academic_schedules.id',
                 'assessments.assessment_id',

@@ -42,8 +42,8 @@
                         "data": 'DT_RowIndex'
                     },
                     {
-                        data: 'last_name',
-                        name: 'last_name'
+                        data: 'student_id',
+                        name: 'student_id'
                     },
                     {
                         data: 'last_name',

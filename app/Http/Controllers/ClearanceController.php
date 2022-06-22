@@ -7,6 +7,8 @@ use App\Models\Program;
 use App\Models\Student;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
+use Illuminate\Support\Facades\Auth;
+
 
 class ClearanceController extends Controller
 {
