@@ -12,7 +12,7 @@
     <div class="card shadow">
         <div class="card-body">
             <div class="table-responsive">
-                <table class="table table-bordered" width="100%" cellspacing="0" id="table">
+                <table class="table table-striped table-bordered" width="100%" cellspacing="0" id="table">
                     <thead>
                         <tr>
                             <td>#</td>

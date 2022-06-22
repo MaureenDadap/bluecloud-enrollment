@@ -9,7 +9,7 @@
                 <div class="card-body py-4 px-5">
                     <div class="row align-items-center">
                         <div class="col">
-                            <span class="text-primary fw-bold">NEW APPLICANTS</span>
+                            <span class="text-success fw-bold">NEW APPLICANTS</span>
                             <h1>{{ $newEnrollees }}</h1>
                         </div>
                         <div class="col-auto">
