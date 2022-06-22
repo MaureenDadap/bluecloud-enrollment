@@ -39,6 +39,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             ProgramsSeeder::class,
             StudentSeeder::class,
+            AssessmentSeeder::class,
         ]);
     }
 }

@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Assessment extends Model
 {
+    use HasFactory;
+
     protected $fillable = [
         'student_id', 'assessment_id', 'academic_schedule_id',  'total_units', 'unit_price', 'total_unit_price', 'misc_price', 'total_price'
     ];
