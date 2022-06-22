@@ -2,7 +2,15 @@
     <!-- Logo Nav START -->
     <nav class="navbar">
         <div class="container">
-            <div class="d-flex justify-content-end w-100 px-4">
+            <div class="d-flex justify-content-between align-items-center w-100 px-4">
+                <div>
+                    <span class="h6">
+                        <i class="bi-calendar3"></i> <span class="ms-2">{{ $schedule }}</span>
+                    </span>
+                </div>
+                {{-- AY start --}}
+
+
                 <!-- Profile START -->
                 <div class="dropdown my-2 ">
                     <a class="avatar avatar-sm p-0" href="#" id="profileDropdown" role="button"
