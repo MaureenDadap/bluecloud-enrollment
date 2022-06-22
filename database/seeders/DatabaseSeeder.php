@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Program;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -35,13 +36,9 @@ class DatabaseSeeder extends Seeder
             'updated_at' => date('Y-m-d h:m:s'),
         ]);
 
-
-        //PROGRAMS SEEDER
-        DB::table('programs')->insert([
-            'code' => 'BSCS',
-            'name' => 'BS Computer Science',
-            'created_at' => date('Y-m-d h:m:s'),
-            'updated_at' => date('Y-m-d h:m:s'),
+        $this->call([
+            ProgramsSeeder::class,
+            StudentSeeder::class,
         ]);
     }
 }
