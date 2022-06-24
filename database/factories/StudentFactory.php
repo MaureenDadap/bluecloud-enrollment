@@ -31,7 +31,7 @@ class StudentFactory extends Factory
         }
 
 
-        static $userID = 1;
+        static $userID = 2;
         static $studentID = 1;
 
         // $userID = Student::latest()->first()->user_id;
