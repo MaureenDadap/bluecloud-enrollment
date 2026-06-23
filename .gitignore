@@ -1,14 +1,45 @@
-/node_modules
-/public/hot
-/public/storage
-/storage/*.key
-/vendor
+# Environment files
 .env
 .env.backup
+.env.staging
+.env.production
+
+# PHP / Composer
+/.phpunit.cache
 .phpunit.result.cache
-Homestead.json
-Homestead.yaml
+.phpactor.json
+/auth.json
+/vendor
+
+# JavaScript / Node
+/node_modules
 npm-debug.log
 yarn-error.log
+
+# Build outputs
+/bootstrap/ssr
+/public/build
+/public/hot
+/public/storage
+
+# Generated application files
+/storage/*.key
+/storage/pail
+/resources/js/actions
+/resources/js/routes
+/resources/js/wayfinder
+
+# Test databases
+/database/pips_test-tenant*
+
+# IDE / editor settings
+/.fleet
 /.idea
+/.nova
 /.vscode
+/.zed
+
+# Local / OS files
+.DS_Store
+Homestead.json
+Homestead.yaml
