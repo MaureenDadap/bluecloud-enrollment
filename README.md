@@ -1,64 +1,129 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+# BlueCloud Enrollment System
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+A web-based student enrollment system built with Laravel. The system supports online student enrollment, PayPal payment processing, certificate of registration (COR) requests, clearance management, and administrative controls for managing students, programs, courses, and academic schedules.
 
-## About Laravel
+## Features
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- **Student Portal** — Online enrollment, payment via PayPal, COR requests, clearance viewing, and profile management
+- **Admin Portal** — Manage applicants, enrolled students, programs, courses, assessments, academic schedules, and clearances
+- **PayPal Integration** — Sandbox and live payment processing via `srmklive/paypal`
+- **PDF Generation** — COR and document exports via `barryvdh/laravel-dompdf`
+- **DataTables** — Server-side data tables via `yajra/laravel-datatables-oracle`
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Requirements
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- PHP >= 8.5
+- Composer
+- Node.js & npm
+- MySQL
 
-## Learning Laravel
+## Installation
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+1. **Clone the repository**
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+   ```bash
+   git clone https://github.com/MaureenDadap/bluecloud-enrollment.git
+   cd bluecloud-enrollment
+   ```
 
-## Laravel Sponsors
+2. **Install PHP dependencies**
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+   ```bash
+   composer install
+   ```
 
-### Premium Partners
+3. **Install JavaScript dependencies**
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+   ```bash
+   npm install
+   ```
 
-## Contributing
+4. **Set up the environment file**
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+   ```bash
+   cp .env.example .env
+   php artisan key:generate
+   ```
 
-## Code of Conduct
+5. **Configure the database** — Edit `.env` and set your database credentials:
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+   ```env
+   DB_CONNECTION=mysql
+   DB_HOST=127.0.0.1
+   DB_PORT=3306
+   DB_DATABASE=bluecloud_enrollment
+   DB_USERNAME=root
+   DB_PASSWORD=
+   ```
 
-## Security Vulnerabilities
+6. **Run migrations and seed the database**
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+   ```bash
+   php artisan migrate --seed
+   ```
+
+7. **Build front-end assets**
+
+   ```bash
+   npm run build
+   ```
+
+8. **Start the development server**
+
+   ```bash
+   php artisan serve
+   ```
+
+   The application will be available at `http://localhost:8000`.
+
+## Default Accounts
+
+### Admin
+
+| Field    | Value   |
+|----------|---------|
+| Username | `admin` |
+| Password | `admin` |
+
+## PayPal Sandbox Credentials
+
+Use the following sandbox buyer account to test PayPal payments:
+
+| Field          | Value                                    |
+|----------------|------------------------------------------|
+| Email          | `sb-dq4hu51792815@personal.example.com`  |
+| Password       | `ssJM4}X-`                               |
+| Country        | United States                            |
+| Name           | John Doe                                 |
+| Phone          | 2028250400                               |
+
+**Sandbox VISA Card:**
+
+| Field       | Value              |
+|-------------|--------------------|
+| Card Number | `4032039452888573` |
+| Expiry      | `07/2031`          |
+| CVV         | Any 3 digits       |
+
+## Application Structure
+
+| Area                    | Path / Route prefix      |
+|-------------------------|--------------------------|
+| Student dashboard       | `/student/dashboard`     |
+| Online enrollment       | `/student/online-enrollment` |
+| Payment                 | `/enrollment/payment`    |
+| COR request             | `/student/cor`           |
+| Clearance               | `/student/clearance`     |
+| Student profile         | `/student/profile`       |
+| Admin dashboard         | `/admin/dashboard`       |
+| Manage applicants       | `/admin/new-enrollees`   |
+| Manage students         | `/admin/students`        |
+| Manage programs         | `/admin/programs`        |
+| Manage courses          | `/admin/courses`         |
+| Assessments             | `/admin/assessments`     |
+| Academic schedule       | `/admin/academic-schedule` |
+| Clearances              | `/admin/clearances`      |
 
 ## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+This project is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
